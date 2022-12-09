@@ -51,6 +51,9 @@ public class pharmAdminPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         manageItems = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        lblAnalysis1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        manageItems1 = new javax.swing.JLabel();
         rightSystemAdminPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(215, 81, 81));
@@ -140,6 +143,31 @@ public class pharmAdminPanel extends javax.swing.JPanel {
         jLabel7.setText("Hello Sysadmin");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 170, 20));
 
+        lblAnalysis1.setBackground(new java.awt.Color(167, 159, 159));
+        lblAnalysis1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblAnalysis1MousePressed(evt);
+            }
+        });
+        lblAnalysis1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        lblAnalysis1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
+
+        manageItems1.setBackground(new java.awt.Color(255, 204, 153));
+        manageItems1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        manageItems1.setText("Logout");
+        manageItems1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageItems1MousePressed(evt);
+            }
+        });
+        lblAnalysis1.add(manageItems1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, -10, 110, 70));
+
+        jPanel3.add(lblAnalysis1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 240, 50));
+
         rightSystemAdminPanel.setBackground(new java.awt.Color(255, 255, 255));
         rightSystemAdminPanel.setPreferredSize(new java.awt.Dimension(1058, 840));
         rightSystemAdminPanel.setLayout(new java.awt.CardLayout());
@@ -183,14 +211,25 @@ public class pharmAdminPanel extends javax.swing.JPanel {
         layout.next(rightSystemAdminPanel);
     }//GEN-LAST:event_manageNetworkMousePressed
 
+    private void manageItems1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageItems1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageItems1MousePressed
+
+    private void lblAnalysis1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAnalysis1MousePressed
+
+    }//GEN-LAST:event_lblAnalysis1MousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel lblAnalysis;
+    private javax.swing.JPanel lblAnalysis1;
     private javax.swing.JLabel manageItems;
+    private javax.swing.JLabel manageItems1;
     private javax.swing.JLabel manageNetwork;
     private javax.swing.JPanel manageNetworkPanel;
     private javax.swing.JPanel rightSystemAdminPanel;
