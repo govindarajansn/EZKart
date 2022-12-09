@@ -22,12 +22,10 @@ public class foodAdminPanel extends javax.swing.JPanel {
     
     foodAdminMainPanel foodMain;
     manageItems foodItems;
-    MainJFrame mainFrame;
     public foodAdminPanel() {
         initComponents();
         foodMain = new foodAdminMainPanel();
         foodItems = new manageItems();
-        mainFrame = new MainJFrame();
         rightSystemAdminPanel.add("foodMain", foodMain);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
