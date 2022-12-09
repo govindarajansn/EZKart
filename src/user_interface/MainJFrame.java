@@ -23,6 +23,12 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import customer.Customer;
+import customer.CustomerAccountDirectory;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import ecosystem.Ecosystem;
+import db4util.Db4util;
 import user_interface.employee_admin.EmployeeAdminPanel;
 
 import user_interface_foodAdmin.foodAdminPanel;
@@ -45,6 +51,7 @@ public class MainJFrame extends javax.swing.JFrame {
     
     int value = 1000;
     public static int counter = 0;
+
     String selectedImagePath;
     String new_path = "/uploads/";
     foodAdminPanel foodAdmin;
@@ -52,35 +59,27 @@ public class MainJFrame extends javax.swing.JFrame {
     groceriesAdminPanel groceriesAdmin = new groceriesAdminPanel();
     pharmAdminPanel pharmacyAdmin = new pharmAdminPanel();
 
+    public static String customer_id;
+    private Ecosystem system;
+    private Db4util dB4OUtil = Db4util.getInstance();
+
+
+
+
     public MainJFrame() {
        
         initComponents();
+
          this.foodAdmin = new foodAdminPanel();
+
+        system = dB4OUtil.retrieveSystem();
+
+
         jPanel1.setBackground(new Color(0,0,0,20));
         jPanel2.setBackground(new Color(0,0,0,20));
     }
     
-    private void file_nameActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
-        
- 
-    JFileChooser fileChooser = new JFileChooser();
-    
-    FileNameExtensionFilter filter = new FileNameExtensionFilter("IMAGES", "png",
-    "jpg", "jpeg");
-    
-    fileChooser.addChoosableFileFilter(filter);
-    int showOpenDialogue = fileChooser.showOpenDialog(null);
-    
-    if(showOpenDialogue == JFileChooser.APPROVE_OPTION)
-    {
-        File selected_image = fileChooser.getSelectedFile();
-        selectedImagePath =  selected_image.getAbsolutePath();
-            
-    }
-        
-    
-    }     
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -121,6 +120,8 @@ public class MainJFrame extends javax.swing.JFrame {
         btnUploadResume = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         txtPassword2 = new javax.swing.JPasswordField();
+        jLabel10 = new javax.swing.JLabel();
+        txtZipCode = new javax.swing.JTextField();
         lblBack = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
@@ -242,6 +243,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel9.setText("Password");
 
+        jLabel10.setText("Zip Code");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -255,7 +258,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(btnUploadResume))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel5)
@@ -291,7 +294,11 @@ public class MainJFrame extends javax.swing.JFrame {
                                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                                     .addGap(57, 57, 57)
                                                     .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGap(56, 56, 56)))))))
+                                        .addGap(56, 56, 56))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41)
+                                .addComponent(txtZipCode)))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -324,8 +331,12 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(btnSave)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -362,11 +373,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         // TODO add your handling code here:
+        
+        
         MainPane.setSelectedIndex(1);
     }//GEN-LAST:event_btnSignupActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+
         if(txtUserName.getText().equals("food")){
         container.add("workArea",foodAdmin);
         CardLayout layout = (CardLayout) container.getLayout();
@@ -397,6 +411,20 @@ public class MainJFrame extends javax.swing.JFrame {
         container.add("workArea",empadmin);
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
+
+        
+        Customer customeraccount = system.getCustDirectory().authenticateUser(txtUserName.getText(), txtPassword.getText());
+        
+        if(customeraccount== null)
+        {
+            System.out.println("Its null");
+        }
+        
+//        EmployeeAdminPanel empadmin = new EmployeeAdminPanel();
+//        container.add("workArea",empadmin);
+//        CardLayout layout = (CardLayout) container.getLayout();
+//        layout.next(container);
+
         MainPane.setVisible(false);
         container.setVisible(true);
         }
@@ -419,64 +447,30 @@ public class MainJFrame extends javax.swing.JFrame {
 
         String name = txtName.getText();
         String gender = comboGender.getSelectedItem().toString();
-        String email = txtEmail.getText();
+        String email_data = txtEmail.getText();
         String password = String.valueOf(txtPassword2.getPassword());
         String phoneno = txtPhone.getText();
         String address = txtAddress.getText();
+        String zipcode = txtZipCode.getText();
         
+        CustomerAccountDirectory cd =system.getCustDirectory();
+        Customer c = cd.createUserAccount(name, password, email_data, phoneno, gender, address,zipcode);
+        cd.SetUserAccountList(c);
         
+        dB4OUtil.storeSystem(system);
+        system= dB4OUtil.retrieveSystem();
         
-        
-      Connection conn = null;
-      Statement stmt = null;
-      
-    try {
-            
-    conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/ezkart", "root", "root");
-    stmt = (Statement) conn.createStatement();
-    
-    String query = "INSERT INTO customer_details (cust_name ,gender, email, password_data,address, phone_no, cust_id, file) values (?,?,?, ?,?,?,?, ?)";
-    
-        PreparedStatement sta = conn.prepareStatement(query);
-        sta.setString(1, name);
-        sta.setString(2, gender);
-        sta.setString(3, email);
-        sta.setString(4, password);
-        sta.setString(5, address);
-        sta.setString(6,  phoneno);
-        sta.setString(7, 'C' + Integer.toString(value) + Integer.toString(counter));
-        FileReader reader = new FileReader(selectedImagePath);
-        sta.setCharacterStream(8, reader);
-        
-        sta.executeUpdate();
-    
+        for(Customer c1: cd.getUserAccountList())
+        {
+            System.out.println(c1.getCust_id());
+        }
+          
 
-        JOptionPane.showMessageDialog(new JFrame(), "Saved successfully");    
-        conn.close();
-        
-    }
-    
-    catch (Exception exception) {
-    exception.printStackTrace();
-}
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnUploadResumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadResumeActionPerformed
         // TODO add your handling code here:
-            JFileChooser fileChooser = new JFileChooser();
-    
-    FileNameExtensionFilter filter = new FileNameExtensionFilter("IMAGES", "png",
-    "jpg", "jpeg");
-    
-    fileChooser.addChoosableFileFilter(filter);
-    int showOpenDialogue = fileChooser.showOpenDialog(null);
-    
-    if(showOpenDialogue == JFileChooser.APPROVE_OPTION)
-    {
-        File selected_image = fileChooser.getSelectedFile();
-        selectedImagePath =  selected_image.getAbsolutePath();
-            
-    }
+
 
     }//GEN-LAST:event_btnUploadResumeActionPerformed
 
@@ -526,6 +520,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboGender;
     private javax.swing.JPanel container;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -549,5 +544,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPassword2;
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtUserName;
+    private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
 }
