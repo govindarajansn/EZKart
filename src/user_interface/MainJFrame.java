@@ -25,6 +25,14 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import user_interface.employee_admin.EmployeeAdminPanel;
 
+import user_interface_foodAdmin.foodAdminPanel;
+
+import user_interface_groceries.groceriesAdminPanel;
+
+import user_interface_meatAdmin.meatAdminPanel;
+import user_interface_pharmacyAdmin.pharmAdminPanel;
+
+
 /**
  *
  * @author nishu
@@ -39,10 +47,15 @@ public class MainJFrame extends javax.swing.JFrame {
     public static int counter = 0;
     String selectedImagePath;
     String new_path = "/uploads/";
-
+    foodAdminPanel foodAdmin;
+    meatAdminPanel meatAdmin = new meatAdminPanel();
+    groceriesAdminPanel groceriesAdmin = new groceriesAdminPanel();
+    pharmAdminPanel pharmacyAdmin = new pharmAdminPanel();
 
     public MainJFrame() {
+       
         initComponents();
+         this.foodAdmin = new foodAdminPanel();
         jPanel1.setBackground(new Color(0,0,0,20));
         jPanel2.setBackground(new Color(0,0,0,20));
     }
@@ -354,13 +367,39 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        
+        if(txtUserName.getText().equals("food")){
+        container.add("workArea",foodAdmin);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+        MainPane.setVisible(false);
+        container.setVisible(true);
+        }else if(txtUserName.getText().equals("meat")){
+        container.add("workArea",meatAdmin);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+        MainPane.setVisible(false);
+        container.setVisible(true);
+        }else if(txtUserName.getText().equals("gro")){
+        container.add("workArea",groceriesAdmin);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+        MainPane.setVisible(false);
+        container.setVisible(true);
+        }else if(txtUserName.getText().equals("pharm")){
+        container.add("workArea",pharmacyAdmin);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.next(container);
+        MainPane.setVisible(false);
+        container.setVisible(true);
+        }
+        else{
         EmployeeAdminPanel empadmin = new EmployeeAdminPanel();
         container.add("workArea",empadmin);
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
         MainPane.setVisible(false);
         container.setVisible(true);
+        }
 
     }//GEN-LAST:event_btnLoginActionPerformed
 

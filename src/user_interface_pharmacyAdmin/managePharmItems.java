@@ -2,20 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package user_interface_foodAdmin;
+package user_interface_pharmacyAdmin;
 
+import user_interface_foodAdmin.*;
 import java.awt.Color;
 
 /**
  *
  * @author snehagovindarajan
  */
-public class manageItems extends javax.swing.JPanel {
+public class managePharmItems extends javax.swing.JPanel {
 
     /**
      * Creates new form foodAdminMainPanel
      */
-    public manageItems() {
+    public managePharmItems() {
         initComponents();
         foodAdminTemp.setBackground(new Color(0,0,0,90));
         //jLabel2.setVisible(true);
@@ -50,6 +51,8 @@ public class manageItems extends javax.swing.JPanel {
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        foodShopName5 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -113,6 +116,12 @@ public class manageItems extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        foodShopName5.setBackground(new java.awt.Color(255, 255, 255));
+        foodShopName5.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        foodShopName5.setForeground(new java.awt.Color(255, 255, 255));
+        foodShopName5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        foodShopName5.setText("Expiry Date");
+
         javax.swing.GroupLayout foodAdminTempLayout = new javax.swing.GroupLayout(foodAdminTemp);
         foodAdminTemp.setLayout(foodAdminTempLayout);
         foodAdminTempLayout.setHorizontalGroup(
@@ -135,7 +144,8 @@ public class manageItems extends javax.swing.JPanel {
                                     .addComponent(foodShopName4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(foodShopName3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(foodShopName1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(foodShopName2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(foodShopName2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(foodShopName5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(62, 62, 62))
                             .addGroup(foodAdminTempLayout.createSequentialGroup()
                                 .addGap(88, 88, 88)
@@ -149,12 +159,13 @@ public class manageItems extends javax.swing.JPanel {
                                 .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jButton3)
                                     .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextField2)
                                         .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(uploadFoodPic, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(111, 111, 111)
-                                .addComponent(jButton4)))))
+                                .addComponent(jButton4))
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(395, Short.MAX_VALUE))
         );
         foodAdminTempLayout.setVerticalGroup(
@@ -162,14 +173,18 @@ public class manageItems extends javax.swing.JPanel {
             .addGroup(foodAdminTempLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(jLabel2)
-                .addGap(63, 63, 63)
+                .addGap(28, 28, 28)
                 .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(foodShopName3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(foodShopName4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(foodShopName5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(foodShopName1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,7 +203,7 @@ public class manageItems extends javax.swing.JPanel {
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
         );
@@ -196,7 +211,7 @@ public class manageItems extends javax.swing.JPanel {
         add(foodAdminTemp);
         foodAdminTemp.setBounds(0, 0, 1200, 720);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/foodAdmin.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Pharamaadmin_1200x720.png"))); // NOI18N
         add(jLabel1);
         jLabel1.setBounds(0, 0, 1200, 720);
     }// </editor-fold>//GEN-END:initComponents
@@ -214,11 +229,13 @@ public class manageItems extends javax.swing.JPanel {
     private javax.swing.JLabel foodShopName2;
     private javax.swing.JLabel foodShopName3;
     private javax.swing.JLabel foodShopName4;
+    private javax.swing.JLabel foodShopName5;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

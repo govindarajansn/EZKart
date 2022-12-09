@@ -19,12 +19,12 @@ public class sysadminPanel extends javax.swing.JFrame {
     manageAdminPanel manageAdmin = new manageAdminPanel();
     enterprisePanel enterprise = new enterprisePanel();
     manageEmployeeAdmin employeeAdmin = new manageEmployeeAdmin();
-    foodAdminMainPanel foodAdmin = new foodAdminMainPanel();
+//    foodAdminMainPanel foodAdmin = new foodAdminMainPanel();
     public sysadminPanel() {
         initComponents();
         
         //splitPanel.setRightComponent(networkTab);
-        splitPanel.setRightComponent(foodAdmin);
+        splitPanel.setRightComponent(networkTab);
         
     }
 
@@ -54,6 +54,11 @@ public class sysadminPanel extends javax.swing.JFrame {
         networkBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 networkBtnMouseClicked(evt);
+            }
+        });
+        networkBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                networkBtnActionPerformed(evt);
             }
         });
 
@@ -97,10 +102,9 @@ public class sysadminPanel extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(SysMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(addEmployeeAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(SysMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(adminBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(enterpriseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                        .addComponent(networkBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(adminBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(enterpriseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(networkBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         SysMenuLayout.setVerticalGroup(
@@ -158,6 +162,10 @@ public class sysadminPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
          splitPanel.setRightComponent(employeeAdmin);
     }//GEN-LAST:event_addEmployeeAdminMouseClicked
+
+    private void networkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_networkBtnActionPerformed
 
     /**
      * @param args the command line arguments

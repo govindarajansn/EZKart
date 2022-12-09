@@ -6,6 +6,7 @@ package user_interface_foodAdmin;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import javax.swing.JPanel;
 
 /**
  *
@@ -18,6 +19,7 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
      */
     public foodAdminMainPanel() {
         initComponents();
+      
         ItemsContainer.setBackground(new Color(0,0,0,90));
     }
 
@@ -32,22 +34,22 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
 
         ItemsContainer = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        temp = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        foodShopTable = new javax.swing.JTable();
+        foodShopName = new javax.swing.JLabel();
+        foodShopLocation = new javax.swing.JLabel();
+        foodShopNameText = new javax.swing.JTextField();
+        foodShopLocationText = new javax.swing.JTextField();
+        deleteFoodItemsBtn = new javax.swing.JButton();
+        updateFoodItemsBtn = new javax.swing.JButton();
+        clearFoodItemsBtn = new javax.swing.JButton();
+        manageFoodItemsBtn = new javax.swing.JButton();
+        addFoodItemsBtn = new javax.swing.JButton();
+        foodContainer = new javax.swing.JPanel();
+        foodAdminImage = new javax.swing.JLabel();
 
         setLayout(null);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        foodShopTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -55,40 +57,40 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
                 "Shop Id", "Shop Name", "Location"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(foodShopTable);
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("Shop Name");
+        foodShopName.setBackground(new java.awt.Color(255, 255, 255));
+        foodShopName.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        foodShopName.setForeground(new java.awt.Color(255, 255, 255));
+        foodShopName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        foodShopName.setText("Shop Name");
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Location");
+        foodShopLocation.setBackground(new java.awt.Color(255, 255, 255));
+        foodShopLocation.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        foodShopLocation.setForeground(new java.awt.Color(255, 255, 255));
+        foodShopLocation.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        foodShopLocation.setText("Location");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        foodShopNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                foodShopNameTextActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Delete Shop");
+        deleteFoodItemsBtn.setText("Delete Shop");
 
-        jButton2.setText("Update Shop");
+        updateFoodItemsBtn.setText("Update Shop");
 
-        jButton3.setText("Clear");
+        clearFoodItemsBtn.setText("Clear");
 
-        jButton4.setText("Manage Items");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        manageFoodItemsBtn.setText("Manage Items");
+        manageFoodItemsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                manageFoodItemsBtnActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Add Shop");
+        addFoodItemsBtn.setText("Add Shop");
 
         javax.swing.GroupLayout ItemsContainerLayout = new javax.swing.GroupLayout(ItemsContainer);
         ItemsContainer.setLayout(ItemsContainerLayout);
@@ -97,99 +99,103 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
             .addGroup(ItemsContainerLayout.createSequentialGroup()
                 .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ItemsContainerLayout.createSequentialGroup()
-                        .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ItemsContainerLayout.createSequentialGroup()
+                                .addGap(214, 214, 214)
                                 .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(ItemsContainerLayout.createSequentialGroup()
-                                        .addGap(377, 377, 377)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(ItemsContainerLayout.createSequentialGroup()
-                                        .addGap(364, 364, 364)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(13, 13, 13)
+                                        .addComponent(foodShopName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(addFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(foodShopLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(ItemsContainerLayout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(manageFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ItemsContainerLayout.createSequentialGroup()
                                 .addGap(60, 60, 60)
                                 .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)))
+                                    .addComponent(foodShopNameText)
+                                    .addComponent(foodShopLocationText, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(ItemsContainerLayout.createSequentialGroup()
-                                .addGap(119, 119, 119)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(73, 73, 73)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(68, 68, 68)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(79, 79, 79)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addComponent(updateFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(74, 74, 74)
+                                .addComponent(deleteFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56)
+                                .addComponent(clearFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(ItemsContainerLayout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(222, Short.MAX_VALUE))
+                        .addGap(130, 130, 130)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(323, Short.MAX_VALUE))
         );
         ItemsContainerLayout.setVerticalGroup(
             ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ItemsContainerLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
                 .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(foodShopNameText)
+                    .addComponent(foodShopName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(114, 114, 114)
+                    .addComponent(foodShopLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(foodShopLocationText, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(185, 185, 185)
                 .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(127, Short.MAX_VALUE))
+                    .addComponent(updateFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clearFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         add(ItemsContainer);
         ItemsContainer.setBounds(0, 0, 1200, 720);
 
-        temp.setLayout(new java.awt.CardLayout());
-        add(temp);
-        temp.setBounds(0, 0, 0, 0);
+        foodContainer.setLayout(new java.awt.CardLayout());
+        add(foodContainer);
+        foodContainer.setBounds(0, 0, 0, 0);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/foodAdmin.png"))); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 1200, 720);
+        foodAdminImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/foodAdmin.png"))); // NOI18N
+        add(foodAdminImage);
+        foodAdminImage.setBounds(0, 0, 1200, 720);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void foodShopNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodShopNameTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_foodShopNameTextActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void manageFoodItemsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageFoodItemsBtnActionPerformed
         // TODO add your handling code here:
-        manageItems mng = new manageItems();
-        CardLayout layout = (CardLayout) mng.getLayout();
-        layout.next(mng);
-        ItemsContainer.setVisible(false);
-        mng.setVisible(true);
+        manageItems foodItemList = new manageItems();
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+        foodContainer.add("foodArea",foodItemList);
+        CardLayout layout = (CardLayout) foodContainer.getLayout();
+        layout.next(foodContainer);
+        ItemsContainer.setVisible(false);
+        foodContainer.setVisible(true);
+       
+    }//GEN-LAST:event_manageFoodItemsBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ItemsContainer;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton addFoodItemsBtn;
+    private javax.swing.JButton clearFoodItemsBtn;
+    private javax.swing.JButton deleteFoodItemsBtn;
+    private javax.swing.JLabel foodAdminImage;
+    private javax.swing.JPanel foodContainer;
+    private javax.swing.JLabel foodShopLocation;
+    private javax.swing.JTextField foodShopLocationText;
+    private javax.swing.JLabel foodShopName;
+    private javax.swing.JTextField foodShopNameText;
+    private javax.swing.JTable foodShopTable;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JPanel temp;
+    private javax.swing.JButton manageFoodItemsBtn;
+    private javax.swing.JButton updateFoodItemsBtn;
     // End of variables declaration//GEN-END:variables
 }
