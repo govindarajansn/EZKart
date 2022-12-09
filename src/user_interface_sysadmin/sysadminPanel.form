@@ -64,11 +64,9 @@
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="addEmployeeAdmin" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="adminBtn" max="32767" attributes="0"/>
-                              <Component id="enterpriseBtn" pref="150" max="32767" attributes="0"/>
-                              <Component id="networkBtn" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="adminBtn" max="32767" attributes="0"/>
+                          <Component id="enterpriseBtn" max="32767" attributes="0"/>
+                          <Component id="networkBtn" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
                   </Group>

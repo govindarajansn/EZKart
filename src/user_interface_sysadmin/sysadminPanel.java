@@ -4,6 +4,8 @@
  */
 package user_interface_sysadmin;
 
+import user_interface_foodAdmin.foodAdminMainPanel;
+
 /**
  *
  * @author snehagovindarajan
@@ -17,9 +19,12 @@ public class sysadminPanel extends javax.swing.JFrame {
     manageAdminPanel manageAdmin = new manageAdminPanel();
     enterprisePanel enterprise = new enterprisePanel();
     manageEmployeeAdmin employeeAdmin = new manageEmployeeAdmin();
+    foodAdminMainPanel foodAdmin = new foodAdminMainPanel();
     public sysadminPanel() {
         initComponents();
-        splitPanel.setRightComponent(networkTab);
+        
+        //splitPanel.setRightComponent(networkTab);
+        splitPanel.setRightComponent(foodAdmin);
         
     }
 

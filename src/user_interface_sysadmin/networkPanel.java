@@ -34,7 +34,7 @@ public class networkPanel extends javax.swing.JPanel {
         networkJTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         networkName = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        networkSubmit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -80,7 +80,12 @@ public class networkPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("SUBMIT");
+        networkSubmit.setText("SUBMIT");
+        networkSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                networkSubmitMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout networkPaneLayout = new javax.swing.GroupLayout(networkPane);
         networkPane.setLayout(networkPaneLayout);
@@ -96,7 +101,7 @@ public class networkPanel extends javax.swing.JPanel {
                         .addGroup(networkPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, networkPaneLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton1)
+                                .addComponent(networkSubmit)
                                 .addGap(199, 199, 199))
                             .addGroup(networkPaneLayout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -114,7 +119,7 @@ public class networkPanel extends javax.swing.JPanel {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(networkName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
-                .addComponent(jButton1)
+                .addComponent(networkSubmit)
                 .addContainerGap(170, Short.MAX_VALUE))
         );
 
@@ -130,14 +135,19 @@ public class networkPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_networkNameActionPerformed
 
+    private void networkSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_networkSubmitMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_networkSubmitMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable networkJTable;
     private javax.swing.JTextField networkName;
     private javax.swing.JPanel networkPane;
+    private javax.swing.JButton networkSubmit;
     // End of variables declaration//GEN-END:variables
 }
