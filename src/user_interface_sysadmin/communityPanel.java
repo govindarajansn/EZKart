@@ -8,6 +8,9 @@ import community.Community;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 import ecosystem.Ecosystem;
+import enterprise.Enterprise;
+import enterprise.EnterpriseDirectory;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
  *
@@ -63,7 +66,7 @@ public class communityPanel extends javax.swing.JPanel {
         addCommunityName = new javax.swing.JTextField();
         communitySubmit = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        addCommunityName1 = new javax.swing.JTextField();
+        addCommunityCode = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -120,9 +123,9 @@ public class communityPanel extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Zip Code");
 
-        addCommunityName1.addActionListener(new java.awt.event.ActionListener() {
+        addCommunityCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addCommunityName1ActionPerformed(evt);
+                addCommunityCodeActionPerformed(evt);
             }
         });
 
@@ -136,9 +139,6 @@ public class communityPanel extends javax.swing.JPanel {
                         .addGap(486, 486, 486)
                         .addComponent(communitySubmit))
                     .addGroup(networkPaneLayout.createSequentialGroup()
-                        .addGap(268, 268, 268)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(networkPaneLayout.createSequentialGroup()
                         .addGap(326, 326, 326)
                         .addGroup(networkPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -146,22 +146,25 @@ public class communityPanel extends javax.swing.JPanel {
                         .addGap(86, 86, 86)
                         .addGroup(networkPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(addCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addCommunityName1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(379, Short.MAX_VALUE))
+                            .addComponent(addCommunityCode, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(networkPaneLayout.createSequentialGroup()
+                        .addGap(277, 277, 277)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(370, Short.MAX_VALUE))
         );
         networkPaneLayout.setVerticalGroup(
             networkPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(networkPaneLayout.createSequentialGroup()
-                .addGap(189, 189, 189)
+                .addGap(192, 192, 192)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(51, 51, 51)
                 .addGroup(networkPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(networkPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addCommunityName1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addCommunityCode, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addComponent(communitySubmit)
                 .addContainerGap(170, Short.MAX_VALUE))
@@ -182,12 +185,16 @@ public class communityPanel extends javax.swing.JPanel {
     private void communitySubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_communitySubmitMouseClicked
         // TODO add your handling code here:
                 String name = addCommunityName.getText().trim();
+                int zipcode = Integer.parseInt(addCommunityCode.getText());
 //        if (!name.isEmpty()) {
 //            if (system.isUnique(name)) {
                 Community community = system.createAndAddNetwork();
                 community.setCommunityName(name);
+                community.setZipCode(zipcode);
+                community.setEnterpriseDirectory(new EnterpriseDirectory());
                 JOptionPane.showMessageDialog(null, "Network Successfully Created");
                 addCommunityName.setText("");
+                addCommunityCode.setText("");
 //            } else {
 //                JOptionPane.showMessageDialog(null, "Network Already Exits");
 //            }
@@ -199,14 +206,14 @@ public class communityPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_communitySubmitMouseClicked
 
-    private void addCommunityName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCommunityName1ActionPerformed
+    private void addCommunityCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCommunityCodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addCommunityName1ActionPerformed
+    }//GEN-LAST:event_addCommunityCodeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField addCommunityCode;
     private javax.swing.JTextField addCommunityName;
-    private javax.swing.JTextField addCommunityName1;
     private javax.swing.JTable communityJTable;
     private javax.swing.JButton communitySubmit;
     private javax.swing.JLabel jLabel1;

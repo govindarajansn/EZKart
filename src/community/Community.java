@@ -4,6 +4,8 @@
  */
 package community;
 
+import enterprise.EnterpriseDirectory;
+
 /**
  *
  * @author snehagovindarajan
@@ -12,6 +14,11 @@ public class Community {
     
     private String communityName;
     private int zipCode;
+    private EnterpriseDirectory enterpriseDirectory;
+
+    public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
+        this.enterpriseDirectory = enterpriseDirectory;
+    }
 
     public String getCommunityName() {
         return communityName;
@@ -29,7 +36,9 @@ public class Community {
         this.zipCode = zipCode;
     }
     
-    
+    public EnterpriseDirectory getEnterpriseDirectory() {
+        return enterpriseDirectory;
+    }
     
     
 }

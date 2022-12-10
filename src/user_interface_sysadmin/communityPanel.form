@@ -34,10 +34,6 @@
                           <EmptySpace min="-2" pref="486" max="-2" attributes="0"/>
                           <Component id="communitySubmit" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="268" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="563" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="326" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -47,20 +43,24 @@
                           <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="addCommunityName" min="-2" pref="241" max="-2" attributes="0"/>
-                              <Component id="addCommunityName1" min="-2" pref="241" max="-2" attributes="0"/>
+                              <Component id="addCommunityCode" min="-2" pref="241" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="563" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="379" max="32767" attributes="0"/>
+                  <EmptySpace pref="370" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="150" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="addCommunityName" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
@@ -68,7 +68,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel3" min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="addCommunityName1" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="addCommunityCode" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="communitySubmit" min="-2" max="-2" attributes="0"/>
@@ -160,9 +160,9 @@
             <Property name="text" type="java.lang.String" value="Zip Code"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="addCommunityName1">
+        <Component class="javax.swing.JTextField" name="addCommunityCode">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addCommunityName1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addCommunityCodeActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

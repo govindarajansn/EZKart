@@ -39,7 +39,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="networkComboBox" pref="188" max="32767" attributes="0"/>
+                              <Component id="communityComboBox" pref="188" max="32767" attributes="0"/>
                               <Component id="enterpriseComboBox" max="32767" attributes="0"/>
                               <Component id="nameText" max="32767" attributes="0"/>
                           </Group>
@@ -65,7 +65,7 @@
                   <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="networkComboBox" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="communityComboBox" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -130,7 +130,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JComboBox" name="networkComboBox">
+        <Component class="javax.swing.JComboBox" name="communityComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -186,8 +186,11 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enterpriseComboBoxActionPerformed"/>
+          </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -211,6 +214,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="SUBMIT"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

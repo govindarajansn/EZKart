@@ -20,7 +20,7 @@ public class sysadminPanel extends javax.swing.JFrame {
      */
     communityPanel communityTab ;
     manageAdminPanel manageAdmin = new manageAdminPanel();
-    enterprisePanel enterprise = new enterprisePanel();
+    enterprisePanel enterprise ;
     manageEmployeeAdmin employeeAdmin = new manageEmployeeAdmin();
     Ecosystem system;
     MainJFrame mainFrame;
@@ -38,6 +38,7 @@ public class sysadminPanel extends javax.swing.JFrame {
         this.mainFrame = mainFrame;
          initComponents();
          communityTab = new communityPanel(system);
+        
          
         //splitPanel.setRightComponent(networkTab);
         splitPanel.setRightComponent(communityTab);
@@ -46,6 +47,12 @@ public class sysadminPanel extends javax.swing.JFrame {
     private void manageCommunity(){
         //user_interface_sysadmin.communityPanel community = new user_interface_sysadmin.communityPanel(system);
         splitPanel.setRightComponent(communityTab);
+    }
+    
+    private void manageEnterprise(){
+        //user_interface_sysadmin.communityPanel community = new user_interface_sysadmin.communityPanel(system);
+        enterprise = new enterprisePanel(system);
+        splitPanel.setRightComponent(enterprise);
     }
 
     /**
@@ -71,7 +78,7 @@ public class sysadminPanel extends javax.swing.JFrame {
 
         SysMenu.setBackground(new java.awt.Color(153, 153, 153));
 
-        networkBtn.setText("Manage Network");
+        networkBtn.setText("Manage Community");
         networkBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 networkBtnMouseClicked(evt);
@@ -177,7 +184,8 @@ public class sysadminPanel extends javax.swing.JFrame {
 
     private void enterpriseBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterpriseBtnMouseClicked
         // TODO add your handling code here:
-        splitPanel.setRightComponent(enterprise);
+//        splitPanel.setRightComponent(enterprise);
+          manageEnterprise();
     }//GEN-LAST:event_enterpriseBtnMouseClicked
 
     private void adminBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminBtnMouseClicked

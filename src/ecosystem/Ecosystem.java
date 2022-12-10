@@ -53,9 +53,19 @@ public class Ecosystem extends Organisation {
     }
     
     public Community createAndAddNetwork(){
-        Community community=new Community();
+        Community community= new Community();
         communityList.add(community);
         return community;
+    }
+    
+     public Community retriveNetwork(String name){
+         Community com=new Community();
+        for(Community community : communityList){
+            if(community.getCommunityName().equalsIgnoreCase(name)){
+                com= community;
+            }
+        }
+        return com;
     }
     
 }
