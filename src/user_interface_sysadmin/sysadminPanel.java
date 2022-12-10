@@ -39,7 +39,7 @@ public class sysadminPanel extends javax.swing.JFrame {
         employeeAdmin = new manageEmployeeAdmin(system);
         manageAdmin = new manageAdminPanel();
         enterprise = new enterprisePanel();
-        splitPanel.setRightComponent(networkTab);
+        splitPanel.setRightComponent(communityTab);
    
     }
 
@@ -53,10 +53,8 @@ public class sysadminPanel extends javax.swing.JFrame {
         //user_interface_sysadmin.communityPanel community = new user_interface_sysadmin.communityPanel(system);
         enterprise = new enterprisePanel(system);
         splitPanel.setRightComponent(enterprise);
-    
-
  
-    
+    }
     
     
 
@@ -194,20 +192,10 @@ public class sysadminPanel extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void enterpriseBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterpriseBtnMouseClicked
-        // TODO add your handling code here:
-//        splitPanel.setRightComponent(enterprise);
-          manageEnterprise();
-    }//GEN-LAST:event_enterpriseBtnMouseClicked
-
     private void adminBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminBtnMouseClicked
         // TODO add your handling code here:manageAdmin
         splitPanel.setRightComponent(manageAdmin);
     }//GEN-LAST:event_adminBtnMouseClicked
-
-    private void enterpriseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enterpriseBtnActionPerformed
 
     private void networkBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_networkBtnMouseClicked
         // TODO add your handling code here:
@@ -236,6 +224,16 @@ public class sysadminPanel extends javax.swing.JFrame {
     private void addEmployeeAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeAdminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addEmployeeAdminActionPerformed
+
+    private void enterpriseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterpriseBtnActionPerformed
+
+    private void enterpriseBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterpriseBtnMouseClicked
+        // TODO add your handling code here:
+        //        splitPanel.setRightComponent(enterprise);
+        manageEnterprise();
+    }//GEN-LAST:event_enterpriseBtnMouseClicked
 
     /**
      * @param args the command line arguments
