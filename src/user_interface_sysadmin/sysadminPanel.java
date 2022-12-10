@@ -4,6 +4,8 @@
  */
 package user_interface_sysadmin;
 
+import ecosystem.Ecosystem;
+import javax.swing.JFrame;
 import user_interface.MainJFrame;
 import user_interface_foodAdmin.foodAdminMainPanel;
 
@@ -16,17 +18,34 @@ public class sysadminPanel extends javax.swing.JFrame {
     /**
      * Creates new form sysadminPanel
      */
-    networkPanel networkTab = new networkPanel();
+    communityPanel communityTab ;
     manageAdminPanel manageAdmin = new manageAdminPanel();
     enterprisePanel enterprise = new enterprisePanel();
     manageEmployeeAdmin employeeAdmin = new manageEmployeeAdmin();
+    Ecosystem system;
+    MainJFrame mainFrame;
 //    foodAdminMainPanel foodAdmin = new foodAdminMainPanel();
     public sysadminPanel() {
-        initComponents();
+//        initComponents();
+//        
+//        //splitPanel.setRightComponent(networkTab);
+//        splitPanel.setRightComponent(networkTab);
         
+    }
+    
+    public sysadminPanel(Ecosystem system, MainJFrame mainFrame ){
+        this.system = system;
+        this.mainFrame = mainFrame;
+         initComponents();
+         communityTab = new communityPanel(system);
+         
         //splitPanel.setRightComponent(networkTab);
-        splitPanel.setRightComponent(networkTab);
-        
+        splitPanel.setRightComponent(communityTab);
+    }
+    
+    private void manageCommunity(){
+        //user_interface_sysadmin.communityPanel community = new user_interface_sysadmin.communityPanel(system);
+        splitPanel.setRightComponent(communityTab);
     }
 
     /**
@@ -172,7 +191,8 @@ public class sysadminPanel extends javax.swing.JFrame {
 
     private void networkBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_networkBtnMouseClicked
         // TODO add your handling code here:
-        splitPanel.setRightComponent(networkTab);
+//        splitPanel.setRightComponent(networkTab);
+          manageCommunity();
     }//GEN-LAST:event_networkBtnMouseClicked
 
     private void addEmployeeAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addEmployeeAdminMouseClicked
@@ -185,9 +205,8 @@ public class sysadminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_networkBtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       MainJFrame mj = new MainJFrame();
-       mj.logoutAction();
-       new MainJFrame().setVisible(true);
+       mainFrame.logoutAction();
+       mainFrame.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
