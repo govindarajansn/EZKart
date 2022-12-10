@@ -4,6 +4,7 @@
  */
 package user_interface_sysadmin;
 
+
 import ecosystem.Ecosystem;
 import javax.swing.JFrame;
 import user_interface.MainJFrame;
@@ -213,6 +214,7 @@ public class sysadminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_networkBtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
        mainFrame.logoutAction();
        mainFrame.setVisible(true);
        this.dispose();

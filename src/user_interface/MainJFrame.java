@@ -61,7 +61,8 @@ public class MainJFrame extends javax.swing.JFrame {
     meatAdminPanel meatAdmin = new meatAdminPanel();
     groceriesAdminPanel groceriesAdmin = new groceriesAdminPanel();
     pharmAdminPanel pharmacyAdmin = new pharmAdminPanel();
-    sysadminPanel sysAdmin;
+
+    sysadminPanel sysAdmin = new sysadminPanel();
 
     public static String customer_id;
     private Ecosystem system;
@@ -87,6 +88,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public void logoutAction()
     {
        dB4OUtil.storeSystem(system);
+
     }
     
      
@@ -379,6 +381,7 @@ public class MainJFrame extends javax.swing.JFrame {
         
         if(txtUserName.getText().equals("sysadmin@ezcart.com") && String.valueOf(txtPassword.getPassword()).equals("sysadmin")){
             
+
             sysAdmin = new sysadminPanel(system, this);
             MainPane.setVisible(false);
             sysAdmin.setVisible(true);
