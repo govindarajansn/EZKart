@@ -421,8 +421,8 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         
         
-        // Sysadmin Login
-        if(txtUserName.getText().equals("sysadmin@ezcart.com") && String.valueOf(txtPassword.getPassword()).equals("sysadmin")){
+        // Sysadmin Login sysadmin@ezcart.com
+        if(txtUserName.getText().equals("sy") && String.valueOf(txtPassword.getPassword()).equals("sy")){
             
             sysAdmin = new sysadminPanel(system, this);
             MainPane.setVisible(false);

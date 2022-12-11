@@ -32,9 +32,11 @@ public class EmployeeAdminPanel extends javax.swing.JPanel {
     private Db4util dB4OUtil = Db4util.getInstance();
     
     
-    
     public EmployeeAdminPanel(Ecosystem system, MainJFrame mainframe) {
         initComponents();
+        this.system = system;
+        this.mainframe = mainframe;
+        System.out.println("EmployeeAdmin");
         emp_dir_ob = system.getEmpDirectory();
 
         DefaultTableModel tblmodel = (DefaultTableModel)tblEmployeeAdmin.getModel();
@@ -53,8 +55,7 @@ public class EmployeeAdminPanel extends javax.swing.JPanel {
         }
 
 
-        this.system = system;
-        this.mainframe = mainframe;
+      
                 
         jPanel1.setBackground(new Color(0,0,0,15));
     }
