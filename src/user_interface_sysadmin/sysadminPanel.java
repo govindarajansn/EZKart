@@ -35,29 +35,35 @@ public class sysadminPanel extends javax.swing.JFrame {
         this.system = system;
         this.mainframe = mainframe;
         communityTab = new communityPanel(system);
-        manageAdmin = new manageAdminPanel();
+
         employeeAdmin = new manageEmployeeAdmin(system);
         manageAdmin = new manageAdminPanel();
         enterprise = new enterprisePanel();
         adminSplitPane.setRightComponent(communityTab);
+
+
+      
    
     }
 
     
     private void manageCommunity(){
         //user_interface_sysadmin.communityPanel community = new user_interface_sysadmin.communityPanel(system);
+
         adminSplitPane.setRightComponent(communityTab);
+
     }
     
     private void manageEnterprise(){
         //user_interface_sysadmin.communityPanel community = new user_interface_sysadmin.communityPanel(system);
         enterprise = new enterprisePanel(system);
+
         adminSplitPane.setRightComponent(enterprise);
+
  
     }
     
-    
-    
+
 
     
 
@@ -246,9 +252,11 @@ public class sysadminPanel extends javax.swing.JFrame {
         manageEnterprise();
     }//GEN-LAST:event_enterpriseBtnMouseClicked
 
+
     private void adminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_adminBtnActionPerformed
+
 
     /**
      * @param args the command line arguments

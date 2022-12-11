@@ -8,6 +8,8 @@ import organisation.Organisation;
 import customer.CustomerAccountDirectory;
 import employee.Employee;
 import employee.EmployeeAccountDirectory;
+import organisation.FoodVendorDirectory;
+import items.ItemDirectory;
 import java.util.ArrayList;
 /**
  *
@@ -19,6 +21,9 @@ public class Ecosystem extends Organisation {
     private ArrayList<Community> communityList;
     CustomerAccountDirectory customerList;
     EmployeeAccountDirectory empList;
+    FoodVendorDirectory foodList;
+    ItemDirectory itemList;
+    
     
     public static Ecosystem getInstance(){
         if(business==null){
@@ -35,6 +40,8 @@ public class Ecosystem extends Organisation {
         }
         return customerList;
     }
+    
+
     
     public EmployeeAccountDirectory getEmpDirectory()
     {
@@ -67,5 +74,25 @@ public class Ecosystem extends Organisation {
         }
         return com;
     }
+    
+     public FoodVendorDirectory getFoodDirectory()
+    {
+        if(foodList == null)
+        {
+            this.foodList = new FoodVendorDirectory();
+        }
+        return foodList;
+    }
+     
+    public ItemDirectory getItemDirectory()
+    {
+        if(itemList == null)
+        {
+            this.itemList = new ItemDirectory();
+        }
+        return itemList;
+    }
+    
+    
     
 }
