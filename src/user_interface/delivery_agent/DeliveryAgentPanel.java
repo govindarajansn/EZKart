@@ -4,8 +4,10 @@
  */
 package user_interface.delivery_agent;
 
+import ecosystem.Ecosystem;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import user_interface.MainJFrame;
 
 /**
  *
@@ -16,8 +18,12 @@ public class DeliveryAgentPanel extends javax.swing.JPanel {
     /**
      * Creates new form DeliveryAgentPanel
      */
-    public DeliveryAgentPanel() {
+    Ecosystem system;
+    MainJFrame mainframe;
+    public DeliveryAgentPanel(Ecosystem system, MainJFrame mainframe) {
         initComponents();
+        this.system = system;
+        this.mainframe = mainframe;
         jPanel1.setBackground(new Color(0,0,0,15));
         jPanel2.setBackground(new Color(0,0,0,15));
     }
@@ -236,7 +242,7 @@ public class DeliveryAgentPanel extends javax.swing.JPanel {
         );
 
         viewProfile.add(jPanel2);
-        jPanel2.setBounds(574, 78, 391, 410);
+        jPanel2.setBounds(574, 78, 399, 414);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
