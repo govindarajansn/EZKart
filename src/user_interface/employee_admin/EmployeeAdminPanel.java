@@ -311,11 +311,12 @@ public class EmployeeAdminPanel extends javax.swing.JPanel {
         emp_dir_ob.SetEmpAccountList(emp_ob);
         
                       Object data_value [] = {txtName.getText(),
-                         txtPassword.getText(),
+                         comboDepartment.getSelectedItem().toString(),
+                         comboRole.getSelectedItem().toString(),
                          txtEmail.getText(),
                          txtPhone.getText(),
-                         comboDepartment.getSelectedItem().toString(),
-                         comboRole.getSelectedItem().toString()
+                         txtAddress.getText(),
+                        
             };
            tblmodel.addRow(data_value);
          
@@ -366,6 +367,7 @@ public class EmployeeAdminPanel extends javax.swing.JPanel {
 
     private void btnUpdateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEmployeeActionPerformed
         // TODO add your handling code here:
+        employeeIndex = tblEmployeeAdmin.getSelectedRow();
         String name = txtName.getText();
         String department = comboDepartment.getSelectedItem().toString();
         String role = comboRole.getSelectedItem().toString();
