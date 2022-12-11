@@ -6,6 +6,7 @@ package employee;
 
 import employee.Employee;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 public class EmployeeAccountDirectory {
     
     private ArrayList<Employee> employeeList;
+    Random rand;
 
     public EmployeeAccountDirectory() {
         employeeList = new ArrayList();
@@ -39,14 +41,34 @@ public class EmployeeAccountDirectory {
     public Employee createEmpAccount(String name, String password, String email_id,
             String phone_no, String dept, String address, String role){
         Employee e = new Employee();
+        rand = new Random();
         e.setEmployee_name(name);
         e.setPassword(password);
+        e.setEmail_id(email_id);
+        e.setPhone_no(phone_no);
         e.setAddress(address);
         e.setDepartment(dept);
-        e.setEmail_id(email_id);
         e.setRole(role);
-        e.getEmp_id();
+        e.setEmp_id('E' + Integer.toString(rand.nextInt(10000)));
         return e;
     
 }
+    
+        public boolean checkIfUsernameIsUnique(String emailId){
+        for (Employee e : employeeList){
+            if (e.getEmail_id().equals(emailId))
+                return false;
+        }
+        return true;
+    }
+    
+//    public static void main(String[] args) {
+//        
+//        EmployeeAccountDirectory emp_dir = new EmployeeAccountDirectory();
+//        for(Employee e: emp_dir.getEmpAccountList())
+//        {
+//            System.out.println(e.getEmp_id() + e.getRole());
+//        }
+//    }
+    
 }

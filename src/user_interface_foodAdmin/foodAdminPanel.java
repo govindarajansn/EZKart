@@ -8,6 +8,9 @@ package user_interface_foodAdmin;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import user_interface.MainJFrame;
+import ecosystem.Ecosystem;
+import organisation.FoodVendorDirectory;
+import user_interface.MainJFrame;
 
 /**
  *
@@ -19,13 +22,24 @@ public class foodAdminPanel extends javax.swing.JPanel {
      * Creates new form SystemAdminWorkAreaJPanel
      */
   
-    
+
+    Ecosystem system;
+    MainJFrame mainframe;
+    FoodVendorDirectory fvd;
     foodAdminMainPanel foodMain;
+    int index;
     manageItems foodItems;
-    public foodAdminPanel() {
+
+    public foodAdminPanel(Ecosystem system, MainJFrame mainframe) {
+        
+        
         initComponents();
-        foodMain = new foodAdminMainPanel();
-        foodItems = new manageItems();
+        fvd = system.getFoodDirectory();
+        this.system= system;
+        this.mainframe = mainframe;
+
+        foodMain = new foodAdminMainPanel(system, mainframe);
+        foodItems = new manageItems(system, mainframe);
         rightSystemAdminPanel.add("foodMain", foodMain);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
@@ -124,19 +138,27 @@ public class foodAdminPanel extends javax.swing.JPanel {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         lblAnalysis.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 50));
 
         manageItems1.setBackground(new java.awt.Color(255, 204, 153));
         manageItems1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageItems1.setText("Logout");
         manageItems1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                manageItems1MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageItems1MousePressed(evt);
             }
         });
-        lblAnalysis.add(manageItems1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 50));
+        lblAnalysis.add(manageItems1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 110, 50));
 
-        jPanel3.add(lblAnalysis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 240, 70));
+        jPanel3.add(lblAnalysis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 240, 70));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -218,6 +240,22 @@ public class foodAdminPanel extends javax.swing.JPanel {
     private void manageItems1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageItems1MousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_manageItems1MousePressed
+
+    private void manageItems1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageItems1MouseClicked
+        // TODO add your handling code here:
+        
+     mainframe.logoutAction();
+     mainframe.displayPane();
+        
+
+    }//GEN-LAST:event_manageItems1MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        
+     mainframe.logoutAction();
+     mainframe.displayPane();
+    }//GEN-LAST:event_jLabel1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
