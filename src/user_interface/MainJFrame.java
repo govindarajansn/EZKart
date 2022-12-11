@@ -121,6 +121,8 @@ public class MainJFrame extends javax.swing.JFrame {
     public void logoutAction()
     {
        dB4OUtil.storeSystem(system);
+       txtUserName.setText("");
+       txtPassword.setText("");
 
     }
     
@@ -555,39 +557,28 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         
         //delivery Agent
-        String deliveryAdmin_email = "";
-        String deliveryAdmin_pass = "";
+        String deliveryAgent_email = "";
+        String deliveryAgent_pass = "";
+        
         for( Employee emp_ob : emp_dir_ob.getEmpAccountList())
         {
             if (emp_ob.getRole().equals("Delivery Agent"))
             {
-                deliveryAdmin_email = emp_ob.getEmail_id();
-                deliveryAdmin_pass = emp_ob.getPassword();
-        }
-        }
-      
-        if(txtUserName.getText().trim().equals(deliveryAdmin_email) && String.valueOf(txtPassword.getPassword()).trim().equals(deliveryAdmin_pass))
+//                deliveryAgent_email = emp_ob.getEmail_id();
+//                deliveryAgent_pass = emp_ob.getPassword();
+                
+        if(txtUserName.getText().trim().equals(emp_ob.getEmail_id()) && String.valueOf(txtPassword.getPassword()).trim().equals(emp_ob.getPassword()))
         {
-            deliveryAgent = new DeliveryAgentPanel(system, this);
+            deliveryAgent = new DeliveryAgentPanel(system, this, emp_ob);
             MainPane.setVisible(false);
             container.add("meatadmin area", deliveryAgent);
             CardLayout layout = (CardLayout) container.getLayout();
             layout.next(container);
         }
-        
-        
+        }
         }
         
-      
-        
-
-        
-        
-        
-        
-          
-
-
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
