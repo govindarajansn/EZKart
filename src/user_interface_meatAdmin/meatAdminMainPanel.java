@@ -218,6 +218,7 @@ public class meatAdminMainPanel extends javax.swing.JPanel {
     private void meattableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_meattableMouseClicked
         // TODO add your handling code here:
           this.index = meattable.getSelectedRow();
+          
          // manageMeatItems.shopName.setText(meatShopList.getMeatVendorList().get(index).getShop_name());
           TableModel model = meattable.getModel();
         meatShopName.setText(model.getValueAt(index, 1).toString());
@@ -226,6 +227,12 @@ public class meatAdminMainPanel extends javax.swing.JPanel {
 
     private void addMeatShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMeatShopActionPerformed
         // TODO add your handling code here:
+        if(meatShopName.getText().trim().equals("") || locationMeat.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(new JFrame(),
+                "Please Enter valid Inputs",
+                "Error",
+        JOptionPane.ERROR_MESSAGE);
+        }else{
         meatShopList = system.getMeatDirectory();
 
         MeatVendorOnboarding meatShop = meatShopList.createShopData(meatShopName.getText(), locationMeat.getText());
@@ -235,11 +242,13 @@ public class meatAdminMainPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(new JFrame(), "Meat Admins Added successfully ..!!");
         meatShopName.setText("");
         locationMeat.setText("");
+        }
     }//GEN-LAST:event_addMeatShopActionPerformed
 
     private void meatUpdateShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meatUpdateShopActionPerformed
         // TODO add your handling code here:
-         if (index == 99)
+          shopIndex = meattable.getSelectedRow();
+         if (shopIndex < 0 )
         {
                     JOptionPane.showMessageDialog(new JFrame(),
                 "Please make a selection",
@@ -251,7 +260,7 @@ public class meatAdminMainPanel extends javax.swing.JPanel {
         {
         
                // TODO add your handling code here:
-        shopIndex = meattable.getSelectedRow();
+      
         String name = meatShopName.getText();
         String location = locationMeat.getText();
         
@@ -277,13 +286,22 @@ public class meatAdminMainPanel extends javax.swing.JPanel {
 
     private void meatShopDeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meatShopDeleteBtnActionPerformed
         // TODO add your handling code here:
-        shopIndex = meattable.getSelectedRow();//ArrayList<Patient> patientList = patient.getPatientList();
+        shopIndex = meattable.getSelectedRow();
+//ArrayList<Patient> patientList = patient.getPatientList();
+            if (shopIndex < 0 )
+        {
+                    JOptionPane.showMessageDialog(new JFrame(),
+                "Please make a selection",
+                "Error",
+        JOptionPane.ERROR_MESSAGE);
+        }else{
         meatShopList.getMeatVendorList().remove(shopIndex);
         //emp_dir_ob.getEmpAccountList().remove(employeeIndex);
         populateMeatShopTable();
         JOptionPane.showMessageDialog(new JFrame(), "Meat Shop deleted successfully ..!!");
         meatShopName.setText("");
         locationMeat.setText("");
+        }
         
     }//GEN-LAST:event_meatShopDeleteBtnActionPerformed
 

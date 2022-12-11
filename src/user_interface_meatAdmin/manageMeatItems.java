@@ -298,20 +298,30 @@ public class manageMeatItems extends javax.swing.JPanel {
 
     private void addMeatShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMeatShopActionPerformed
         // TODO add your handling code here:
-         //String name, float price, String bestbfr, String type,int qty, String shop_id    
+         //String name, float price, String bestbfr, String type,int qty, String shop_id  
+        if(itemShopTxt.getText().trim().equals("") && priceTxt.getText().trim().equals("") && bestBfrTxt.getText().trim().equals("")
+                && meatQuantityTxt.getText().trim().equals("")){
+             JOptionPane.showMessageDialog(new JFrame(),
+                "Please enter Valid Inputs",
+                "Error",
+        JOptionPane.ERROR_MESSAGE);
+        }else{
         id = system.getMeatItemDirectory();
         MeatItem i = id.createItems(itemShopTxt.getText() , Float.parseFloat(priceTxt.getText()), bestBfrTxt.getText(),
                 txtComboBox.getSelectedItem().toString(), Integer.parseInt(meatQuantityTxt.getText()),
                 tblmodel1.getValueAt(meatAdminMainPanel.index, 1).toString()
                 );
         id.setMeatItemList(i); 
-//        Object data_value [] = {
-//                 itemShopTxt.getText() , Float.parseFloat(priceTxt.getText()),
-//                txtComboBox.getSelectedItem().toString(), Integer.parseInt(meatQuantityTxt.getText())
-//                 
-//            };
-//           tblmodel.addRow(data_value);
-    populateMeatShopTable();
+         for(MeatItem I1: id.getMeatItemList())
+            {
+                if(I1.getShop_id() == tblmodel1.getValueAt(meatAdminMainPanel.index, 0).toString())
+                {
+                    populateMeatShopTable();
+
+                }
+            }
+     
+      //  populateMeatShopTable();
          
        JOptionPane.showMessageDialog(new JFrame(), "Item Saved succesfully");
        itemShopTxt.setText("");
@@ -319,6 +329,7 @@ public class manageMeatItems extends javax.swing.JPanel {
        bestBfrTxt.setText("");
        txtComboBox.setSelectedIndex(0);
        meatQuantityTxt.setText("");
+        }
        
     }//GEN-LAST:event_addMeatShopActionPerformed
 
