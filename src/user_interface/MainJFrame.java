@@ -70,7 +70,7 @@ public class MainJFrame extends javax.swing.JFrame {
     Customer c;
     CustomerAccountDirectory cd ;
     CustomerMainPanel custPanel;
-
+    
     public static String customer_id;
     EmployeeAccountDirectory emp_dir_ob; 
     Employee emp_ob;
@@ -86,7 +86,7 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         system = dB4OUtil.retrieveSystem();
         this.foodAdmin = new foodAdminPanel(system, this);
-        this.meatAdmin = new meatAdminPanel();
+        this.meatAdmin = new meatAdminPanel(system, this);
         this.pharmacyAdmin = new pharmAdminPanel();
         this.groceriesAdmin = new groceriesAdminPanel();
         this.empAdmin = new EmployeeAdminPanel(system, this);
@@ -430,8 +430,8 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         
         
-        // Sysadmin Login
-        if(txtUserName.getText().equals("sysadmin@ezcart.com") && String.valueOf(txtPassword.getPassword()).equals("sysadmin")){
+        // Sysadmin Login sysadmin@ezcart.com
+        if(txtUserName.getText().equals("sy") && String.valueOf(txtPassword.getPassword()).equals("sy")){
             
             sysAdmin = new sysadminPanel(system, this);
             MainPane.setVisible(false);
@@ -502,6 +502,27 @@ public class MainJFrame extends javax.swing.JFrame {
             foodAdmin = new foodAdminPanel(system, this);
             MainPane.setVisible(false);
             container.add("foodadmin area", foodAdmin);
+            CardLayout layout = (CardLayout) container.getLayout();
+            layout.next(container);
+        }
+        
+         // meatadmin Login
+        String meatadmin_email = "";
+        String meatadmin_pass = "";
+        for( Employee emp_ob : emp_dir_ob.getEmpAccountList())
+        {
+            if ("Meat Admin".equals(emp_ob.getRole()))
+            {
+                meatadmin_email = emp_ob.getEmail_id();
+                meatadmin_pass = emp_ob.getPassword();
+        }
+        }
+      
+        if(txtUserName.getText().equals(foodadmin_email) && String.valueOf(txtPassword.getPassword()).equals(foodadmin_pass))
+        {
+            meatAdmin = new meatAdminPanel(system, this);
+            MainPane.setVisible(false);
+            container.add("meatadmin area", meatAdmin);
             CardLayout layout = (CardLayout) container.getLayout();
             layout.next(container);
         }

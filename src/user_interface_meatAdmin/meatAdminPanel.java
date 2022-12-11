@@ -5,9 +5,11 @@
  */
 package user_interface_meatAdmin;
 
+import ecosystem.Ecosystem;
 import user_interface_foodAdmin.*;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import user_interface.MainJFrame;
 
 /**
  *
@@ -22,11 +24,15 @@ public class meatAdminPanel extends javax.swing.JPanel {
     
     meatAdminMainPanel meatMain;
     manageMeatItems meatItems;
-    public meatAdminPanel() {
+    Ecosystem system;
+    MainJFrame mainframe;
+    public meatAdminPanel(Ecosystem system, MainJFrame mainframe) {
         initComponents();
-        meatMain = new meatAdminMainPanel();
+        this.system = system;
+        this.mainframe = mainframe;
+        meatMain = new meatAdminMainPanel(system,mainframe);
         meatItems = new manageMeatItems();
-        rightSystemAdminPanel.add("foodMain", meatMain);
+        rightSystemAdminPanel.add("meatMain", meatMain);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
     }

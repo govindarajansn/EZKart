@@ -33,9 +33,11 @@ public class EmployeeAdminPanel extends javax.swing.JPanel {
     DefaultTableModel tblmodel;
     
     
-    
     public EmployeeAdminPanel(Ecosystem system, MainJFrame mainframe) {
         initComponents();
+        this.system = system;
+        this.mainframe = mainframe;
+        System.out.println("EmployeeAdmin");
         emp_dir_ob = system.getEmpDirectory();
 
         tblmodel = (DefaultTableModel)tblEmployeeAdmin.getModel();
@@ -54,8 +56,7 @@ public class EmployeeAdminPanel extends javax.swing.JPanel {
         }
 
 
-        this.system = system;
-        this.mainframe = mainframe;
+      
                 
         jPanel1.setBackground(new Color(0,0,0,15));
     }
