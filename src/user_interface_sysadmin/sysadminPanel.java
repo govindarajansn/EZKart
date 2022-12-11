@@ -40,7 +40,6 @@ public class sysadminPanel extends javax.swing.JFrame {
         manageAdmin = new manageAdminPanel();
         enterprise = new enterprisePanel();
         adminSplitPane.setRightComponent(communityTab);
-   
     }
 
     
@@ -53,10 +52,8 @@ public class sysadminPanel extends javax.swing.JFrame {
         //user_interface_sysadmin.communityPanel community = new user_interface_sysadmin.communityPanel(system);
         enterprise = new enterprisePanel(system);
         adminSplitPane.setRightComponent(enterprise);
- 
+
     }
-    
-    
     
 
     
