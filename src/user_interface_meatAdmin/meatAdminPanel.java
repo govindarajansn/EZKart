@@ -212,7 +212,6 @@ public class meatAdminPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageNetworkPanelMousePressed
 
     private void manageNetworkMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageNetworkMousePressed
-        meatMain = new meatAdminMainPanel(system,mainframe);
         rightSystemAdminPanel.add("foodMain", meatMain);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
