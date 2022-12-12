@@ -87,8 +87,8 @@ public class MainJFrame extends javax.swing.JFrame {
         system = dB4OUtil.retrieveSystem();
         this.foodAdmin = new foodAdminPanel(system, this);
         this.meatAdmin = new meatAdminPanel();
-        this.pharmacyAdmin = new pharmAdminPanel();
-        this.groceriesAdmin = new groceriesAdminPanel();
+        this.pharmacyAdmin = new pharmAdminPanel(system, this);
+        this.groceriesAdmin = new groceriesAdminPanel(system, this);
         this.empAdmin = new EmployeeAdminPanel(system, this);
         this.sysAdmin = new sysadminPanel(system, this) ;
         
@@ -502,6 +502,48 @@ public class MainJFrame extends javax.swing.JFrame {
             foodAdmin = new foodAdminPanel(system, this);
             MainPane.setVisible(false);
             container.add("foodadmin area", foodAdmin);
+            CardLayout layout = (CardLayout) container.getLayout();
+            layout.next(container);
+        }
+        
+        // Grocery Admin Login
+        String groceryadmin_email = "";
+        String groceryadmin_pass = "";
+        for( Employee emp_ob : emp_dir_ob.getEmpAccountList())
+        {
+            if ("Groceries Admin".equals(emp_ob.getRole()))
+            {
+                groceryadmin_email = emp_ob.getEmail_id();
+                groceryadmin_pass = emp_ob.getPassword();
+        }
+        }
+      
+        if(txtUserName.getText().equals(groceryadmin_email) && String.valueOf(txtPassword.getPassword()).equals(groceryadmin_pass))
+        {
+            groceriesAdmin = new groceriesAdminPanel(system, this);
+            MainPane.setVisible(false);
+            container.add("groceriesAdmin", groceriesAdmin);
+            CardLayout layout = (CardLayout) container.getLayout();
+            layout.next(container);
+        }
+        
+        // Pharmacy Admin Login
+        String pharmacyadmin_email = "";
+        String pharmacyadmin_pass = "";
+        for( Employee emp_ob : emp_dir_ob.getEmpAccountList())
+        {
+            if ("Pharma Admin".equals(emp_ob.getRole()))
+            {
+                pharmacyadmin_email = emp_ob.getEmail_id();
+                pharmacyadmin_pass = emp_ob.getPassword();
+        }
+        }
+      
+        if(txtUserName.getText().equals(pharmacyadmin_email) && String.valueOf(txtPassword.getPassword()).equals(pharmacyadmin_pass))
+        {
+            pharmacyAdmin = new pharmAdminPanel(system, this);
+            MainPane.setVisible(false);
+            container.add("pharmacyAdmin", pharmacyAdmin);
             CardLayout layout = (CardLayout) container.getLayout();
             layout.next(container);
         }

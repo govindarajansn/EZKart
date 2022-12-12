@@ -53,8 +53,8 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField1" min="-2" pref="192" max="-2" attributes="0"/>
-                                      <Component id="jTextField2" min="-2" pref="192" max="-2" attributes="0"/>
+                                      <Component id="txtShopName" min="-2" pref="192" max="-2" attributes="0"/>
+                                      <Component id="txtShopLocation" min="-2" pref="192" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -74,12 +74,12 @@
                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="txtShopName" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="jTextField2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="txtShopLocation" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -134,6 +134,12 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MouseClicked"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -167,12 +173,12 @@
             <Property name="text" type="java.lang.String" value="Location"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="txtShopName">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtShopNameActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="txtShopLocation">
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
@@ -183,6 +189,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Update Shop"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
@@ -201,6 +210,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Add Shop"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

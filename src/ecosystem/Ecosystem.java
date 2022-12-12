@@ -8,8 +8,13 @@ import organisation.Organisation;
 import customer.CustomerAccountDirectory;
 import employee.Employee;
 import employee.EmployeeAccountDirectory;
+import items.GroceryItemDirectory;
 import organisation.FoodVendorDirectory;
 import items.ItemDirectory;
+import items.PharmaItemDirectory;
+import java.util.ArrayList;
+import organisation.GroceryVendorDirectory;
+import organisation.PharmaVendorDirectory;
 /**
  *
  * @author dkdha
@@ -21,7 +26,11 @@ public class Ecosystem extends Organisation {
     CustomerAccountDirectory customerList;
     EmployeeAccountDirectory empList;
     FoodVendorDirectory foodList;
+    GroceryVendorDirectory groceryList;
+    PharmaVendorDirectory pharmaList;
     ItemDirectory itemList;
+    GroceryItemDirectory groceryItemList;
+    PharmaItemDirectory pharmaItemList;
     
     
     public static Ecosystem getInstance(){
@@ -83,6 +92,24 @@ public class Ecosystem extends Organisation {
         return foodList;
     }
      
+    public GroceryVendorDirectory getGroceryDirectory()
+    {
+        if(groceryList == null)
+        {
+            this.groceryList = new GroceryVendorDirectory();
+        }
+        return groceryList;
+    }
+    
+    public PharmaVendorDirectory getPharmaDirectory()
+    {
+        if(pharmaList == null)
+        {
+            this.pharmaList = new PharmaVendorDirectory();
+        }
+        return pharmaList;
+    }
+     
     public ItemDirectory getItemDirectory()
     {
         if(itemList == null)
@@ -92,6 +119,22 @@ public class Ecosystem extends Organisation {
         return itemList;
     }
     
+    public GroceryItemDirectory getGroceryItemDirectory()
+    {
+        if(groceryItemList == null)
+        {
+            this.groceryItemList = new GroceryItemDirectory();
+        }
+        return groceryItemList;
+    }
     
+    public PharmaItemDirectory getPharmaItemDirectory()
+    {
+        if(pharmaItemList == null)
+        {
+            this.pharmaItemList = new PharmaItemDirectory();
+        }
+        return pharmaItemList;
+    }
     
 }

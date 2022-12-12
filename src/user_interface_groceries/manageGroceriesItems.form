@@ -82,7 +82,10 @@
                                   <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                                   <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jTextField2" min="-2" pref="201" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextField2" alignment="0" pref="201" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -105,31 +108,34 @@
                       <Component id="foodShopName4" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="jTextField2" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="foodShopName5" min="-2" pref="29" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="foodShopName5" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="jTextField1" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="foodShopName1" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="jComboBox1" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="foodShopName2" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="jTextField4" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="foodShopName" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="uploadFoodPic" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="48" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="195" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               </Group>
@@ -218,13 +224,8 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBox1">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Produce&quot;, &quot;Dairy&quot;, &quot;Bakery&quot;, &quot;Snacks&quot;, &quot;Drinks&quot; })" type="code"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -255,6 +256,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Update Item"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
@@ -276,16 +280,22 @@
             <Component class="javax.swing.JTable" name="jTable1">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="0">
-                    <Column editable="true" title="Item Id" type="java.lang.Object"/>
-                    <Column editable="true" title="Items" type="java.lang.Object"/>
+                  <Table columnCount="6" rowCount="0">
+                    <Column editable="true" title="Item" type="java.lang.Object"/>
                     <Column editable="true" title="Price" type="java.lang.Object"/>
+                    <Column editable="true" title="Best Before" type="java.lang.Object"/>
                     <Column editable="true" title="Type" type="java.lang.Object"/>
                     <Column editable="true" title="Quantity" type="java.lang.Object"/>
+                    <Column editable="true" title="Shop Id" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -317,6 +327,12 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MouseClicked"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -334,6 +350,8 @@
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="Best Before"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextField1">
         </Component>
       </SubComponents>
     </Container>

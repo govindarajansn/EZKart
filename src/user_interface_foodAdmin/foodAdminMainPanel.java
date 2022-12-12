@@ -39,25 +39,10 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
     public foodAdminMainPanel(Ecosystem system, MainJFrame mainframe) {
         initComponents();
         fvd = system.getFoodDirectory();
-         tblmodel = (DefaultTableModel)foodShopTable.getModel();
-      
-         for(int i=0; i< fvd.getFoodVendorList().size(); i++)
-        {
-             Object data_value [] = {fvd.getFoodVendorList().get(i).getShop_id(),
-                 
-                 fvd.getFoodVendorList().get(i).getShop_name(),
-                 
-                 fvd.getFoodVendorList().get(i).getLocation()
-
-            };
-           tblmodel.addRow(data_value);
-        }
-
         this.system = system;
         this.mainframe = mainframe;
-                
-      
-        ItemsContainer.setBackground(new Color(0,0,0,90));
+        ItemsContainer.setBackground(new Color(0, 0, 0, 90));
+        populateTable();
     }
     
 
@@ -214,18 +199,15 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
         fvd = system.getFoodDirectory();
 
         FoodVendorOnboarding fv = fvd.createShopData(foodShopNameText.getText(), foodShopLocationText.getText());
-        fvd.setFoodVendorList(fv); 
-        Object data_value [] = {fv.getShop_id(),
-            foodShopNameText.getText(),foodShopLocationText.getText()
-                 
-                 
-            };
-           tblmodel.addRow(data_value);
-         
-       JOptionPane.showMessageDialog(new JFrame(), "Shop Saved succesfully");
+        fvd.setFoodVendorList(fv);
+        Object data_value[] = {fv.getShop_id(),
+            foodShopNameText.getText(), foodShopLocationText.getText()
 
-        
-        
+        };
+        tblmodel.addRow(data_value);
+
+        JOptionPane.showMessageDialog(new JFrame(), "Shop Saved Succesfully");
+
     }//GEN-LAST:event_addFoodItemsBtnActionPerformed
 
     private void foodShopTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_foodShopTableMouseClicked
@@ -233,6 +215,7 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
         
         
         this.index = foodShopTable.getSelectedRow();
+        foodAdminPanel.index_1 = this.index;
           TableModel model = foodShopTable.getModel();
 //        String shop_name = model.getValueAt(index, 1).toString();
 //        String shop_location = model.getValueAt(index, 2).toString();
@@ -243,25 +226,22 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
 
     private void updateFoodItemsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateFoodItemsBtnActionPerformed
         // TODO add your handling code here:
-        
-        if (index == 99)
-        {
-                    JOptionPane.showMessageDialog(new JFrame(),
-                "Please make a selection",
-                "Error",
-        JOptionPane.ERROR_MESSAGE);
-        }
-        
-        else
-        {
-        
-        String shopname_edit = foodShopName.getText();
-        String shop_loc_edit = foodShopLocation.getText();
-        
-        
-        fvd.getFoodVendorList().get(index).setShop_name(shopname_edit);
-        fvd.getFoodVendorList().get(index).setLocation(shop_loc_edit);
 
+        if (index == 99) {
+            JOptionPane.showMessageDialog(new JFrame(),
+                    "Please make a selection",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        } else {
+
+            String shopname_edit = foodShopNameText.getText();
+            String shop_loc_edit = foodShopLocationText.getText();
+
+            fvd.getFoodVendorList().get(index).setShop_name(shopname_edit);
+            fvd.getFoodVendorList().get(index).setLocation(shop_loc_edit);
+            
+            populateTable();
+            JOptionPane.showMessageDialog(new JFrame(), "Shop Updated Succesfully");
 
         }
         
@@ -270,7 +250,22 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_updateFoodItemsBtnActionPerformed
+   
+    private void populateTable() {
+        
+        tblmodel = (DefaultTableModel) foodShopTable.getModel();
+        tblmodel.setRowCount(0);
 
+        for (int i = 0; i < fvd.getFoodVendorList().size(); i++) {
+            Object data_value[] = {fvd.getFoodVendorList().get(i).getShop_id(),
+                fvd.getFoodVendorList().get(i).getShop_name(),
+                fvd.getFoodVendorList().get(i).getLocation()
+
+            };
+            tblmodel.addRow(data_value);
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ItemsContainer;

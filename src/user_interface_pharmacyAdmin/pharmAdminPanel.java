@@ -5,9 +5,12 @@
  */
 package user_interface_pharmacyAdmin;
 
-import user_interface_foodAdmin.*;
+import ecosystem.Ecosystem;
+import user_interface_pharmacyAdmin.*;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import organisation.PharmaVendorDirectory;
+import user_interface.MainJFrame;
 
 /**
  *
@@ -19,16 +22,25 @@ public class pharmAdminPanel extends javax.swing.JPanel {
      * Creates new form SystemAdminWorkAreaJPanel
      */
   
+    Ecosystem system;
+    MainJFrame mainframe;
+    PharmaVendorDirectory pvd;
+    static int index_1;
+    pharmacyAdminMainPanel pharmaMain;
+    managePharmItems pharmaItems;
     
-    pharmacyAdminMainPanel pharmMain;
-    managePharmItems pharmItems;
-    public pharmAdminPanel() {
+    public pharmAdminPanel(Ecosystem system, MainJFrame mainframe) {
         initComponents();
-        pharmMain = new pharmacyAdminMainPanel();
-        pharmItems = new managePharmItems();
-        rightSystemAdminPanel.add("foodMain", pharmMain);
+        pvd = system.getPharmaDirectory();
+        this.system= system;
+        this.mainframe = mainframe;
+
+        pharmaMain = new pharmacyAdminMainPanel(system, mainframe);
+        pharmaItems = new managePharmItems(system, mainframe);
+        rightSystemAdminPanel.add("pharmaMain", pharmaMain);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
+        
     }
 
 
@@ -124,6 +136,11 @@ public class pharmAdminPanel extends javax.swing.JPanel {
         jLabel5.setBackground(new java.awt.Color(255, 204, 153));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manageIcon.png"))); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         lblAnalysis.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
 
         manageItems.setBackground(new java.awt.Color(255, 204, 153));
@@ -154,6 +171,11 @@ public class pharmAdminPanel extends javax.swing.JPanel {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         lblAnalysis1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 50));
 
         manageItems1.setBackground(new java.awt.Color(255, 204, 153));
@@ -196,7 +218,8 @@ public class pharmAdminPanel extends javax.swing.JPanel {
 
     private void manageItemsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageItemsMousePressed
         // TODO add your handling code here:
-       rightSystemAdminPanel.add("foodMain", pharmItems);
+       pharmaItems = new managePharmItems(system, mainframe);
+       rightSystemAdminPanel.add("pharmaMain", pharmaItems);
        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
        layout.next(rightSystemAdminPanel);
     }//GEN-LAST:event_manageItemsMousePressed
@@ -206,7 +229,7 @@ public class pharmAdminPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageNetworkPanelMousePressed
 
     private void manageNetworkMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageNetworkMousePressed
-        rightSystemAdminPanel.add("foodMain", pharmMain);
+        rightSystemAdminPanel.add("pharmaMain", pharmaMain);
         CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
         layout.next(rightSystemAdminPanel);
     }//GEN-LAST:event_manageNetworkMousePressed
@@ -218,6 +241,16 @@ public class pharmAdminPanel extends javax.swing.JPanel {
     private void lblAnalysis1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAnalysis1MousePressed
 
     }//GEN-LAST:event_lblAnalysis1MousePressed
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        mainframe.logoutAction();
+        mainframe.displayPane();
+    }//GEN-LAST:event_jLabel1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
