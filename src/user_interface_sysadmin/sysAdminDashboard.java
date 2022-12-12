@@ -288,7 +288,7 @@ public class sysAdminDashboard extends javax.swing.JFrame {
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
-        supAgent = new SupportAgentPanel(system,mainframe);
+        supAgent = new SupportAgentPanel(system,mainframe, "");
         adminSplitPane.setRightComponent(supAgent);
     }//GEN-LAST:event_jLabel9MouseClicked
 
