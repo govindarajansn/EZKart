@@ -4,8 +4,10 @@
  */
 package user_interface.support_agent;
 
+import ecosystem.Ecosystem;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import user_interface.MainJFrame;
 
 /**
  *
@@ -16,7 +18,7 @@ public class SupportAgentPanel extends javax.swing.JPanel {
     /**
      * Creates new form SupportAgentPanel
      */
-    public SupportAgentPanel() {
+    public SupportAgentPanel(Ecosystem system, MainJFrame mainframe) {
         initComponents();
         jPanel1.setBackground(new Color(0,0,0,15));
     }
@@ -36,6 +38,7 @@ public class SupportAgentPanel extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         tblDeliveryAgent2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -66,7 +69,7 @@ public class SupportAgentPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(88, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -74,8 +77,8 @@ public class SupportAgentPanel extends javax.swing.JPanel {
                         .addComponent(jLabel3)
                         .addGap(129, 129, 129))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54))))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,17 +87,23 @@ public class SupportAgentPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addGap(43, 43, 43)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         add(jPanel1);
-        jPanel1.setBounds(370, 100, 760, 470);
+        jPanel1.setBounds(50, 100, 890, 460);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer-support-bg.jpg"))); // NOI18N
         add(jLabel1);
         jLabel1.setBounds(0, 0, 1200, 720);
+
+        jLabel10.setFont(new java.awt.Font("Maku", 3, 36)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel10.setText("Welcome Admin ..!!");
+        add(jLabel10);
+        jLabel10.setBounds(100, 0, 380, 80);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblDeliveryAgent2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDeliveryAgent2MouseClicked
@@ -107,14 +116,11 @@ public class SupportAgentPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable tblDeliveryAgent;
-    private javax.swing.JTable tblDeliveryAgent1;
     private javax.swing.JTable tblDeliveryAgent2;
     // End of variables declaration//GEN-END:variables
 }

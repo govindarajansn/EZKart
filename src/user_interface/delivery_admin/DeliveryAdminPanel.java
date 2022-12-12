@@ -103,6 +103,7 @@ public class DeliveryAdminPanel extends javax.swing.JPanel {
         jComboBoxDeliveryAgent = new javax.swing.JComboBox<>();
         assignBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -150,6 +151,10 @@ public class DeliveryAdminPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel10.setFont(new java.awt.Font("Maku", 3, 36)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel10.setText("Welcome Admin ..!!");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -168,13 +173,18 @@ public class DeliveryAdminPanel extends javax.swing.JPanel {
                         .addGap(19, 19, 19)
                         .addComponent(logoutBtn)
                         .addGap(353, 353, 353)
-                        .addComponent(assignBtn)))
+                        .addComponent(assignBtn))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(163, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(109, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -258,6 +268,7 @@ public class DeliveryAdminPanel extends javax.swing.JPanel {
     private javax.swing.JButton assignBtn;
     private javax.swing.JComboBox<String> jComboBoxDeliveryAgent;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;

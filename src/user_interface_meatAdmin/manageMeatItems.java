@@ -202,7 +202,7 @@ public class manageMeatItems extends javax.swing.JPanel {
         });
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Lao MN", 3, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Lao MN", 3, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 255, 255));
         jLabel2.setText("Add Items");
 

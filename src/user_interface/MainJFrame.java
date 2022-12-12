@@ -608,6 +608,8 @@ public class MainJFrame extends javax.swing.JFrame {
         txtAddress.setText("");
         txtZipCode.setText("");
         chkDeliveryPartner.setSelected(false);
+        txtUserName.setText("");
+        txtPassword.setText("");
         MainPane.setSelectedIndex(0);
     }//GEN-LAST:event_lblBackMousePressed
 
