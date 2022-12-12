@@ -6,15 +6,6 @@ package user_interface.customer;
 
 import java.awt.CardLayout;
 import java.awt.Color;
-import ecosystem.Ecosystem;
-import javax.swing.table.DefaultTableModel;
-import organisation.FoodVendorDirectory;
-import organisation.FoodVendorOnboarding;
-import items.ItemDirectory;
-import items.Item;
-import static user_interface_foodAdmin.foodAdminMainPanel.foodShopTable;
-import cart.CartDirectory;
-
 
 /**
  *
@@ -26,111 +17,10 @@ public class ShopListPanel extends javax.swing.JPanel {
      * Creates new form FoodPanel
      */
     String shopType;
-    Ecosystem system;
-    FoodVendorDirectory fvd;
-//    GroceryVendorDirectory gcd;
-//    PharmaVendorDirectory pvd;
-//    MeatVendorDirectory mvd;
-    ItemDirectory id;
-    CartDirectory crd;
     
-    DefaultTableModel tblModel;
-    static int index;
-    
-    public ShopListPanel(Ecosystem system, String shop, CartDirectory crd) {
+    public ShopListPanel(String shop) {
         initComponents();
         this.shopType = shop;
-        this.system = system;
-        this.crd = crd;
-                
-        fvd = system.getFoodDirectory();
-       
-        
-        if(shop.equals("food"))
-        {
-            
-        tblModel = (DefaultTableModel)tblShopDetails.getModel();
-        tblModel.setRowCount(0);
-      
-         for(int i=0; i< fvd.getFoodVendorList().size(); i++)
-        {
-             Object data_value [] = {fvd.getFoodVendorList().get(i).getShop_id(),
-                 
-                 fvd.getFoodVendorList().get(i).getShop_name(),
-                 
-                 fvd.getFoodVendorList().get(i).getLocation()
-
-            };
-           tblModel.addRow(data_value);
-        }
-        }
-        
-        
-        if(shop.equals("grocery"))
-        {
-            
-        tblModel = (DefaultTableModel)tblShopDetails.getModel();
-        tblModel.setRowCount(0);
-      
-         for(int i=0; i< fvd.getFoodVendorList().size(); i++)
-        {
-             Object data_value [] = {fvd.getFoodVendorList().get(i).getShop_id(),
-                 
-                 fvd.getFoodVendorList().get(i).getShop_name(),
-                 
-                 fvd.getFoodVendorList().get(i).getLocation()
-
-            };
-           tblModel.addRow(data_value);
-        }
-        }
-        
-        if(shop.equals("meat"))
-        {
-            
-        tblModel = (DefaultTableModel)tblShopDetails.getModel();
-        tblModel.setRowCount(0);
-      
-         for(int i=0; i< fvd.getFoodVendorList().size(); i++)
-        {
-             Object data_value [] = {fvd.getFoodVendorList().get(i).getShop_id(),
-                 
-                 fvd.getFoodVendorList().get(i).getShop_name(),
-                 
-                 fvd.getFoodVendorList().get(i).getLocation()
-
-            };
-           tblModel.addRow(data_value);
-        }
-        }
-        
-        else
-        {
-            
-        tblModel = (DefaultTableModel)tblShopDetails.getModel();
-        tblModel.setRowCount(0);
-      
-         for(int i=0; i< fvd.getFoodVendorList().size(); i++)
-        {
-             Object data_value [] = {fvd.getFoodVendorList().get(i).getShop_id(),
-                 
-                 fvd.getFoodVendorList().get(i).getShop_name(),
-                 
-                 fvd.getFoodVendorList().get(i).getLocation()
-
-            };
-           tblModel.addRow(data_value);
-        }
-        }
-        
-        
-        
-        
-        
-        
-
-        
-  
         jPanel1.setBackground(new Color(0,0,0,20));
     }
 
@@ -160,7 +50,7 @@ public class ShopListPanel extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Shop Id", "Shop Name", "Location"
+                "Shop Name", "Address", "ZIP"
             }
         ));
         tblShopDetails.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -209,28 +99,16 @@ public class ShopListPanel extends javax.swing.JPanel {
         if(shopType.equals("food")){
             jPanel1.setVisible(false);
             jLabel1.setVisible(false);
-            index = tblShopDetails.getSelectedRow();
-            FoodItemsPanel fooditemsPanel = new FoodItemsPanel(system, index, crd);
+            FoodItemsPanel fooditemsPanel = new FoodItemsPanel();
             container.add("workArea",fooditemsPanel);
             CardLayout layout = (CardLayout) container.getLayout();
             layout.next(container);       
             container.setVisible(true);
-            jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/foodAdmin.png"))); 
-
-            
-            
-            
-            
-            
-            
-        }
-        
-        
-        
-        else if(shopType.equals("grocery")){
+            jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/foodAdmin.png")));        
+        }else if(shopType.equals("grocery")){
             jPanel1.setVisible(false);
             jLabel1.setVisible(false);
-            GroceryItemsPanel groceryitemsPanel = new GroceryItemsPanel(system , index, crd);
+            GroceryItemsPanel groceryitemsPanel = new GroceryItemsPanel();
             container.add("workArea",groceryitemsPanel);
             CardLayout layout = (CardLayout) container.getLayout();
             layout.next(container);       
@@ -239,7 +117,7 @@ public class ShopListPanel extends javax.swing.JPanel {
         }else if(shopType.equals("meat")){
             jPanel1.setVisible(false);
             jLabel1.setVisible(false);
-            MeatItemsPanel meatitemsPanel = new MeatItemsPanel(system, index, crd);
+            MeatItemsPanel meatitemsPanel = new MeatItemsPanel();
             container.add("workArea",meatitemsPanel);
             CardLayout layout = (CardLayout) container.getLayout();
             layout.next(container);       
@@ -249,7 +127,7 @@ public class ShopListPanel extends javax.swing.JPanel {
         else{
             jPanel1.setVisible(false);
             jLabel1.setVisible(false);
-            PharmaItemsPanel pharmaitemsPanel = new PharmaItemsPanel(system, index, crd);
+            PharmaItemsPanel pharmaitemsPanel = new PharmaItemsPanel();
             container.add("workArea",pharmaitemsPanel);
             CardLayout layout = (CardLayout) container.getLayout();
             layout.next(container);       
@@ -265,6 +143,6 @@ public class ShopListPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable tblShopDetails;
+    private javax.swing.JTable tblShopDetails;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,9 +7,7 @@ import db4util.Db4util;
 import ecosystem.Ecosystem;
 import user_interface.MainJFrame;
 import customer.Customer;
-import cart.Cart;
-import cart.CartDirectory;
-import order.OrderDirectory;
+
 
 /**
  *
@@ -24,10 +22,7 @@ public class CustomerMainPanel extends javax.swing.JPanel {
     
     Ecosystem system;
     MainJFrame mainframe;
-    CartDirectory crd;
-    OrderDirectory ord;
     private Db4util dB4OUtil = Db4util.getInstance();
-    static String cust_id;
     
     public CustomerMainPanel(Ecosystem system, MainJFrame mainframe, Customer cust_ob
     ) {
@@ -35,9 +30,6 @@ public class CustomerMainPanel extends javax.swing.JPanel {
         this.system = system;
         this.mainframe = mainframe;
         lblName.setText(cust_ob.getCustomer_name());
-        cust_id = cust_ob.getCust_id();
-        crd = new CartDirectory();
-        
                 
     }
 
@@ -254,37 +246,37 @@ public class CustomerMainPanel extends javax.swing.JPanel {
 
     private void btnFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFoodActionPerformed
         // TODO add your handling code here:
-        ShopListPanel foodListPanel = new ShopListPanel(system, "food", crd);
+        ShopListPanel foodListPanel = new ShopListPanel("food");
         splitPane.setRightComponent(foodListPanel);
     }//GEN-LAST:event_btnFoodActionPerformed
 
     private void btnGroceryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGroceryActionPerformed
         // TODO add your handling code here:
-        ShopListPanel groceryListPanel = new ShopListPanel(system, "grocery", crd);
+        ShopListPanel groceryListPanel = new ShopListPanel("grocery");
         splitPane.setRightComponent(groceryListPanel);
     }//GEN-LAST:event_btnGroceryActionPerformed
 
     private void btnMeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeatActionPerformed
         // TODO add your handling code here:
-        ShopListPanel meatListPanel = new ShopListPanel(system, "meat", crd);
+        ShopListPanel meatListPanel = new ShopListPanel("meat");
         splitPane.setRightComponent(meatListPanel);
     }//GEN-LAST:event_btnMeatActionPerformed
 
     private void btnPharmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPharmaActionPerformed
         // TODO add your handling code here:
-        ShopListPanel pharmaListPanel = new ShopListPanel(system, "pharma", crd);
+        ShopListPanel pharmaListPanel = new ShopListPanel("pharma");
         splitPane.setRightComponent(pharmaListPanel);
     }//GEN-LAST:event_btnPharmaActionPerformed
 
     private void btnCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartActionPerformed
         // TODO add your handling code here:
-        CartItemsPanel cart = new CartItemsPanel(system, crd, ord);
+        CartItemsPanel cart = new CartItemsPanel();
         splitPane.setRightComponent(cart);
     }//GEN-LAST:event_btnCartActionPerformed
 
     private void btnPastOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPastOrdersActionPerformed
         // TODO add your handling code here:
-        PastOrdersPanel pastOrders = new PastOrdersPanel(system, ord);
+        PastOrdersPanel pastOrders = new PastOrdersPanel();
         splitPane.setRightComponent(pastOrders);
     }//GEN-LAST:event_btnPastOrdersActionPerformed
 

@@ -35,25 +35,27 @@ public class sysadminPanel extends javax.swing.JFrame {
         this.system = system;
         this.mainframe = mainframe;
         communityTab = new communityPanel(system);
-        manageAdmin = new manageAdminPanel();
+
         employeeAdmin = new manageEmployeeAdmin(system);
         manageAdmin = new manageAdminPanel();
         enterprise = new enterprisePanel();
-        adminSplitPane.setRightComponent(communityTab);
+        splitPanel.setRightComponent(communityTab);
+   
     }
 
     
     private void manageCommunity(){
         //user_interface_sysadmin.communityPanel community = new user_interface_sysadmin.communityPanel(system);
-        adminSplitPane.setRightComponent(communityTab);
+        splitPanel.setRightComponent(communityTab);
     }
     
     private void manageEnterprise(){
         //user_interface_sysadmin.communityPanel community = new user_interface_sysadmin.communityPanel(system);
         enterprise = new enterprisePanel(system);
-        adminSplitPane.setRightComponent(enterprise);
-
+        splitPanel.setRightComponent(enterprise);
+ 
     }
+    
     
 
     
@@ -67,7 +69,7 @@ public class sysadminPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        adminSplitPane = new javax.swing.JSplitPane();
+        splitPanel = new javax.swing.JSplitPane();
         SysMenu = new javax.swing.JPanel();
         networkBtn = new javax.swing.JButton();
         enterpriseBtn = new javax.swing.JButton();
@@ -109,11 +111,6 @@ public class sysadminPanel extends javax.swing.JFrame {
         adminBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 adminBtnMouseClicked(evt);
-            }
-        });
-        adminBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adminBtnActionPerformed(evt);
             }
         });
 
@@ -179,17 +176,17 @@ public class sysadminPanel extends javax.swing.JFrame {
                 .addContainerGap(100, Short.MAX_VALUE))
         );
 
-        adminSplitPane.setLeftComponent(SysMenu);
+        splitPanel.setLeftComponent(SysMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(adminSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
+            .addComponent(splitPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(adminSplitPane)
+            .addComponent(splitPanel)
         );
 
         pack();
@@ -197,12 +194,7 @@ public class sysadminPanel extends javax.swing.JFrame {
 
     private void adminBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminBtnMouseClicked
         // TODO add your handling code here:manageAdmin
-        
-        sysAdminDashboard admin = new sysAdminDashboard(system,mainframe);
-        adminSplitPane.setVisible(false);
-        admin.setVisible(true);
-        
-        //adminSplitPane.setRightComponent.
+        splitPanel.setRightComponent(manageAdmin);
     }//GEN-LAST:event_adminBtnMouseClicked
 
     private void networkBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_networkBtnMouseClicked
@@ -213,7 +205,7 @@ public class sysadminPanel extends javax.swing.JFrame {
 
     private void addEmployeeAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addEmployeeAdminMouseClicked
         // TODO add your handling code here:
-         adminSplitPane.setRightComponent(employeeAdmin);
+         splitPanel.setRightComponent(employeeAdmin);
     }//GEN-LAST:event_addEmployeeAdminMouseClicked
 
     private void networkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkBtnActionPerformed
@@ -242,10 +234,6 @@ public class sysadminPanel extends javax.swing.JFrame {
         //        splitPanel.setRightComponent(enterprise);
         manageEnterprise();
     }//GEN-LAST:event_enterpriseBtnMouseClicked
-
-    private void adminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_adminBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,10 +274,10 @@ public class sysadminPanel extends javax.swing.JFrame {
     private javax.swing.JPanel SysMenu;
     private javax.swing.JButton addEmployeeAdmin;
     private javax.swing.JButton adminBtn;
-    private javax.swing.JSplitPane adminSplitPane;
     private javax.swing.JButton enterpriseBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton networkBtn;
+    private javax.swing.JSplitPane splitPanel;
     // End of variables declaration//GEN-END:variables
 }
