@@ -183,7 +183,7 @@ public class EmployeeAdminPanel extends javax.swing.JPanel {
 
         jLabel10.setFont(new java.awt.Font("Maku", 3, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel10.setText("Welcome Employee Admin ..!!");
+        jLabel10.setText("Welcome Admin ..!!");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

@@ -94,8 +94,8 @@ public class MainJFrame extends javax.swing.JFrame {
         system = dB4OUtil.retrieveSystem();
         this.foodAdmin = new foodAdminPanel(system, this);
         this.meatAdmin = new meatAdminPanel(system,this);
-        this.pharmacyAdmin = new pharmAdminPanel();
-        this.groceriesAdmin = new groceriesAdminPanel();
+        this.pharmacyAdmin = new pharmAdminPanel(system,this);
+        this.groceriesAdmin = new groceriesAdminPanel(system,this);
         this.empAdmin = new EmployeeAdminPanel(system, this);
         this.sysAdmin = new sysadminPanel(system, this) ;
         
@@ -442,6 +442,11 @@ public class MainJFrame extends javax.swing.JFrame {
         String regex = "^(.+)@(\\S+)$";
        return s.matches(regex);
     }
+    
+    private void  txtEmailActionPerformed(java.awt.event.ActionEvent evt){
+        
+    }
+    
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         if(txtUserName.getText().trim().equals("") && txtPassword.getText().trim().equals("")){
