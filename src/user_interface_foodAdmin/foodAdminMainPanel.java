@@ -17,7 +17,7 @@ import javax.swing.table.TableModel;
 import organisation.FoodVendorDirectory;
 import organisation.FoodVendorOnboarding;
 import user_interface.MainJFrame;
-
+import user_interface_foodAdmin.foodAdminPanel;
 /**
  *
  * @author snehagovindarajan
@@ -35,11 +35,11 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
     DefaultTableModel tblmodel;
 
     private Db4util dB4OUtil = Db4util.getInstance();
-
-    public foodAdminMainPanel(Ecosystem system, MainJFrame mainframe) {
-        initComponents();
-        fvd = system.getFoodDirectory();
-         tblmodel = (DefaultTableModel)foodShopTable.getModel();
+    
+    public  void populatetable()
+    {
+       tblmodel = (DefaultTableModel)foodShopTable.getModel();
+       tblmodel.setRowCount(0);
       
          for(int i=0; i< fvd.getFoodVendorList().size(); i++)
         {
@@ -52,6 +52,13 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
             };
            tblmodel.addRow(data_value);
         }
+    }
+
+    public foodAdminMainPanel(Ecosystem system, MainJFrame mainframe) {
+        initComponents();
+        fvd = system.getFoodDirectory();
+        populatetable();
+
 
         this.system = system;
         this.mainframe = mainframe;
@@ -85,6 +92,7 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
         foodContainer = new javax.swing.JPanel();
         foodAdminImage = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(1200, 1200));
         setLayout(null);
 
         foodShopTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -145,52 +153,51 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
             .addGroup(ItemsContainerLayout.createSequentialGroup()
                 .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ItemsContainerLayout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ItemsContainerLayout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(foodShopName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(addFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(foodShopLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ItemsContainerLayout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(foodShopNameText)
-                                    .addComponent(foodShopLocationText, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(ItemsContainerLayout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(updateFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(74, 74, 74)
-                                .addComponent(deleteFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(56, 56, 56)
-                                .addComponent(clearFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(93, 93, 93)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ItemsContainerLayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(323, Short.MAX_VALUE))
+                        .addGap(56, 56, 56)
+                        .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(ItemsContainerLayout.createSequentialGroup()
+                                .addComponent(addFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(ItemsContainerLayout.createSequentialGroup()
+                                        .addComponent(updateFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(71, 71, 71)
+                                        .addComponent(deleteFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(ItemsContainerLayout.createSequentialGroup()
+                                        .addComponent(foodShopName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(74, 74, 74)
+                                        .addComponent(foodShopNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(ItemsContainerLayout.createSequentialGroup()
+                                .addComponent(foodShopLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(105, 105, 105)
+                                .addComponent(foodShopLocationText, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(65, 65, 65)
+                        .addComponent(clearFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(427, Short.MAX_VALUE))
         );
         ItemsContainerLayout.setVerticalGroup(
             ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ItemsContainerLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addGap(91, 91, 91)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(foodShopNameText)
-                    .addComponent(foodShopName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(63, 63, 63)
+                .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(foodShopName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(foodShopNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(foodShopLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(foodShopLocationText, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(185, 185, 185)
+                    .addComponent(foodShopLocationText, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(foodShopLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(156, 156, 156)
                 .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updateFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(clearFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(61, Short.MAX_VALUE))
+                    .addComponent(clearFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         add(ItemsContainer);
@@ -215,12 +222,8 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
 
         FoodVendorOnboarding fv = fvd.createShopData(foodShopNameText.getText(), foodShopLocationText.getText());
         fvd.setFoodVendorList(fv); 
-        Object data_value [] = {fv.getShop_id(),
-            foodShopNameText.getText(),foodShopLocationText.getText()
-                 
-                 
-            };
-           tblmodel.addRow(data_value);
+        populatetable();
+
          
        JOptionPane.showMessageDialog(new JFrame(), "Shop Saved succesfully");
 
@@ -233,6 +236,7 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
         
         
         this.index = foodShopTable.getSelectedRow();
+        foodAdminPanel.index_1 = this.index;
           TableModel model = foodShopTable.getModel();
 //        String shop_name = model.getValueAt(index, 1).toString();
 //        String shop_location = model.getValueAt(index, 2).toString();
@@ -255,12 +259,14 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
         else
         {
         
-        String shopname_edit = foodShopName.getText();
-        String shop_loc_edit = foodShopLocation.getText();
+        String shopname_edit = foodShopNameText.getText();
+        String shop_loc_edit = foodShopLocationText.getText();
         
         
         fvd.getFoodVendorList().get(index).setShop_name(shopname_edit);
         fvd.getFoodVendorList().get(index).setLocation(shop_loc_edit);
+        populatetable();
+       JOptionPane.showMessageDialog(new JFrame(), "Data edited succesfully");
 
 
         }
