@@ -52,7 +52,8 @@ public class EmployeeAdminPanel extends javax.swing.JPanel {
                  emp_dir_ob.getEmpAccountList().get(i).getRole(),
                  emp_dir_ob.getEmpAccountList().get(i).getEmail_id(),
                  emp_dir_ob.getEmpAccountList().get(i).getPhone_no(),
-                 emp_dir_ob.getEmpAccountList().get(i).getAddress()                 
+                 emp_dir_ob.getEmpAccountList().get(i).getAddress(), 
+                 emp_dir_ob.getEmpAccountList().get(i).getEmp_id()
             };
            tblmodel.addRow(data_value);
         }
@@ -136,7 +137,7 @@ public class EmployeeAdminPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Department", "Role", "Email", "Phone", "Address"
+                "Name", "Department", "Role", "Email", "Phone", "Address", "Employee Id"
             }
         ));
         tblEmployeeAdmin.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -4,12 +4,18 @@
  */
 package user_interface.delivery_agent;
 
+import assignedDeliveryAgent.assignedAgent;
+import assignedDeliveryAgent.assignedAgentDirectory;
+import customer.CustomerAccountDirectory;
 import ecosystem.Ecosystem;
 import employee.Employee;
 import employee.EmployeeAccountDirectory;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import order.Order;
+import order.OrderDirectory;
 import user_interface.MainJFrame;
 
 /**
@@ -24,20 +30,44 @@ public class DeliveryAgentPanel extends javax.swing.JPanel {
     Ecosystem system;
     MainJFrame mainframe;
     EmployeeAccountDirectory emp_dir_ob; 
+    assignedAgentDirectory assignAgent;
+    OrderDirectory orderDir;
     Employee emp;
-    
+    DefaultTableModel tblModel;
+    int count =0;
     
     public DeliveryAgentPanel(Ecosystem system, MainJFrame mainframe, Employee emp) {
         initComponents();
         this.system = system;
         this.mainframe = mainframe;
         emp_dir_ob= system.getEmpDirectory();
+        assignAgent = system.getAssignedAgentDirectory();
+       // custDir = system.getCustDirectory();
+        orderDir = system.getOrderDirectory();
+
         jPanel1.setBackground(new Color(0,0,0,15));
         jPanel2.setBackground(new Color(0,0,0,15));
        
         this.emp = emp;
         fieldPopulate();
+        tblModel = (DefaultTableModel)tblDeliveryAgent.getModel();
         System.out.println(this.emp.getEmployee_name());
+        for(assignedAgent a : assignAgent.getAssignedAgentList()){
+            if(a.getDelPerson_id().equals(emp.getEmp_id())){
+                
+                Object data_value [] = {
+                    assignAgent.getAssignedAgentList().get(count).getAgent_id(),
+                     assignAgent.getAssignedAgentList().get(count).getOrder_id(),
+                     assignAgent.getAssignedAgentList().get(count).getCust_id(),
+                      assignAgent.getAssignedAgentList().get(count).getOrderStatus()
+
+            };
+           tblModel.addRow(data_value);
+            }
+            count++;
+        }
+        //populateTabel();
+        
         
     }
     
@@ -47,6 +77,8 @@ public class DeliveryAgentPanel extends javax.swing.JPanel {
         txtAddress.setText(emp.getAddress());
         txtPassword.setText(emp.getPassword());
     }
+    
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -86,13 +118,10 @@ public class DeliveryAgentPanel extends javax.swing.JPanel {
 
         tblDeliveryAgent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Order ID", "Customer Name", "Address", "Phone", "Status"
+                "Delivery Id", "Order ID", "Customer Id", "Status"
             }
         ));
         tblDeliveryAgent.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -302,9 +331,44 @@ public class DeliveryAgentPanel extends javax.swing.JPanel {
 
     private void tblDeliveryAgentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDeliveryAgentMouseClicked
         // TODO add your handling code here:
+        int index = tblDeliveryAgent.getSelectedRow();
         String message = "Order Delivered\n";
         Object[] params = {message};
         JOptionPane.showConfirmDialog(null, params, "Update Order Status", JOptionPane.PLAIN_MESSAGE);
+        for(Order o : orderDir.getOrderList()){
+            if(o.getOrderid().equals(tblDeliveryAgent.getValueAt(index,1).toString())){
+                o.setStatus("Delivered");
+            }
+        }
+        //tblDeliveryAgent.setValueAt("Delivered", 1, index);
+         for(assignedAgent a : assignAgent.getAssignedAgentList()){
+            if(a.getOrder_id().equals(tblDeliveryAgent.getValueAt(index,1).toString())){
+                a.setOrderStatus("Delivered");
+            }
+        }
+        
+         
+        int count1 =0 ;
+       tblModel = (DefaultTableModel)tblDeliveryAgent.getModel();
+       tblModel.setRowCount(0);
+        System.out.println(this.emp.getEmployee_name());
+        for(assignedAgent a : assignAgent.getAssignedAgentList()){
+            if(a.getDelPerson_id().equals(emp.getEmp_id())){
+                
+                Object data_value [] = {
+                    assignAgent.getAssignedAgentList().get(count1).getAgent_id(),
+                     assignAgent.getAssignedAgentList().get(count1).getOrder_id(),
+                     assignAgent.getAssignedAgentList().get(count1).getCust_id(),
+                     assignAgent.getAssignedAgentList().get(count1).getOrderStatus()
+
+            };
+           tblModel.addRow(data_value);
+            }
+            count1++;
+        }
+        
+        
+        
 
     }//GEN-LAST:event_tblDeliveryAgentMouseClicked
 

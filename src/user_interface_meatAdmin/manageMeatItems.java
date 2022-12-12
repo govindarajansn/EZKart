@@ -351,7 +351,7 @@ public class manageMeatItems extends javax.swing.JPanel {
 
     private void meatItemsTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_meatItemsTblMouseClicked
         // TODO add your handling code here:
-              itemIndex = meatItemsTbl.getSelectedRow();
+        itemIndex = meatItemsTbl.getSelectedRow();
         // ArrayList<Patient> patientList = patient.getPatientList();
         DefaultTableModel tempEmployee = (DefaultTableModel)meatItemsTbl.getModel();
         String name = tempEmployee.getValueAt(itemIndex,1).toString();
