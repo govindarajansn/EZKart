@@ -55,8 +55,6 @@
                                   <Component id="updateFoodItemsBtn" min="-2" pref="110" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                                   <Component id="deleteFoodItemsBtn" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                  <Component id="clearFoodItemsBtn" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -65,7 +63,7 @@
                           <Component id="jScrollPane2" min="-2" pref="650" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="323" max="32767" attributes="0"/>
+                  <EmptySpace pref="420" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -88,7 +86,6 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="updateFoodItemsBtn" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="deleteFoodItemsBtn" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="clearFoodItemsBtn" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="addFoodItemsBtn" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="61" max="32767" attributes="0"/>
@@ -186,6 +183,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Delete Shop"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteFoodItemsBtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="updateFoodItemsBtn">
           <Properties>
@@ -194,11 +194,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateFoodItemsBtnActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="clearFoodItemsBtn">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Clear"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="addFoodItemsBtn">
           <Properties>

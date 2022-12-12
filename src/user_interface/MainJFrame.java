@@ -86,7 +86,7 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         system = dB4OUtil.retrieveSystem();
         this.foodAdmin = new foodAdminPanel(system, this);
-        this.meatAdmin = new meatAdminPanel();
+        this.meatAdmin = new meatAdminPanel(system, this);
         this.pharmacyAdmin = new pharmAdminPanel(system, this);
         this.groceriesAdmin = new groceriesAdminPanel(system, this);
         this.empAdmin = new EmployeeAdminPanel(system, this);
@@ -544,6 +544,27 @@ public class MainJFrame extends javax.swing.JFrame {
             pharmacyAdmin = new pharmAdminPanel(system, this);
             MainPane.setVisible(false);
             container.add("pharmacyAdmin", pharmacyAdmin);
+            CardLayout layout = (CardLayout) container.getLayout();
+            layout.next(container);
+        }
+        
+        // Meat Admin Login
+        String meatadmin_email = "";
+        String meatadmin_pass = "";
+        for( Employee emp_ob : emp_dir_ob.getEmpAccountList())
+        {
+            if ("Meat Admin".equals(emp_ob.getRole()))
+            {
+                meatadmin_email = emp_ob.getEmail_id();
+                meatadmin_pass = emp_ob.getPassword();
+        }
+        }
+      
+        if(txtUserName.getText().equals(meatadmin_email) && String.valueOf(txtPassword.getPassword()).equals(meatadmin_pass))
+        {
+            meatAdmin = new meatAdminPanel(system, this);
+            MainPane.setVisible(false);
+            container.add("meatAdmin", meatAdmin);
             CardLayout layout = (CardLayout) container.getLayout();
             layout.next(container);
         }

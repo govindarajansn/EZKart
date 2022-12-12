@@ -65,7 +65,6 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
         foodShopLocationText = new javax.swing.JTextField();
         deleteFoodItemsBtn = new javax.swing.JButton();
         updateFoodItemsBtn = new javax.swing.JButton();
-        clearFoodItemsBtn = new javax.swing.JButton();
         addFoodItemsBtn = new javax.swing.JButton();
         foodContainer = new javax.swing.JPanel();
         foodAdminImage = new javax.swing.JLabel();
@@ -106,6 +105,11 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
         });
 
         deleteFoodItemsBtn.setText("Delete Shop");
+        deleteFoodItemsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteFoodItemsBtnActionPerformed(evt);
+            }
+        });
 
         updateFoodItemsBtn.setText("Update Shop");
         updateFoodItemsBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -113,8 +117,6 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
                 updateFoodItemsBtnActionPerformed(evt);
             }
         });
-
-        clearFoodItemsBtn.setText("Clear");
 
         addFoodItemsBtn.setText("Add Shop");
         addFoodItemsBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -148,13 +150,11 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
                                 .addGap(30, 30, 30)
                                 .addComponent(updateFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(74, 74, 74)
-                                .addComponent(deleteFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(56, 56, 56)
-                                .addComponent(clearFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(deleteFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(ItemsContainerLayout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(420, Short.MAX_VALUE))
         );
         ItemsContainerLayout.setVerticalGroup(
             ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,7 +173,6 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
                 .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(clearFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addFoodItemsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
@@ -196,18 +195,25 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
 
     private void addFoodItemsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFoodItemsBtnActionPerformed
         // TODO add your handling code here:
-        fvd = system.getFoodDirectory();
+        if (validation()) {
+            fvd = system.getFoodDirectory();
 
-        FoodVendorOnboarding fv = fvd.createShopData(foodShopNameText.getText(), foodShopLocationText.getText());
-        fvd.setFoodVendorList(fv);
-        Object data_value[] = {fv.getShop_id(),
-            foodShopNameText.getText(), foodShopLocationText.getText()
+            FoodVendorOnboarding fv = fvd.createShopData(foodShopNameText.getText(), foodShopLocationText.getText());
+            fvd.setFoodVendorList(fv);
+            Object data_value[] = {fv.getShop_id(),
+                foodShopNameText.getText(), foodShopLocationText.getText()
 
-        };
-        tblmodel.addRow(data_value);
+            };
+            tblmodel.addRow(data_value);
+            clearFields();
 
-        JOptionPane.showMessageDialog(new JFrame(), "Shop Saved Succesfully");
-
+            JOptionPane.showMessageDialog(new JFrame(), "Shop Saved Succesfully");
+        } else {
+            JOptionPane.showMessageDialog(null, "Enter Valid Details");
+        }
+        
+        
+        
     }//GEN-LAST:event_addFoodItemsBtnActionPerformed
 
     private void foodShopTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_foodShopTableMouseClicked
@@ -241,6 +247,7 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
             fvd.getFoodVendorList().get(index).setLocation(shop_loc_edit);
             
             populateTable();
+            clearFields();
             JOptionPane.showMessageDialog(new JFrame(), "Shop Updated Succesfully");
 
         }
@@ -250,6 +257,17 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_updateFoodItemsBtnActionPerformed
+
+    private void deleteFoodItemsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteFoodItemsBtnActionPerformed
+        // TODO add your handling code here:
+        
+        int index = foodShopTable.getSelectedRow();
+        fvd.getFoodVendorList().remove(index);
+        populateTable();
+        clearFields();
+        JOptionPane.showMessageDialog(this, "Vendor Deleted Successfully");
+       
+    }//GEN-LAST:event_deleteFoodItemsBtnActionPerformed
    
     private void populateTable() {
         
@@ -266,11 +284,29 @@ public class foodAdminMainPanel extends javax.swing.JPanel {
         }
 
     }
+    
+    private void clearFields() {
+        
+        foodShopNameText.setText("");
+        foodShopLocationText.setText("");
+    }
+    
+    public boolean validation() {
+        boolean validate = true;
+        
+        if (foodShopNameText.getText().isEmpty()) {
+            validate = false;
+        }
+        if (foodShopLocationText.getText().isEmpty()) {
+            validate = false;
+        }
+        
+        return validate;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ItemsContainer;
     private javax.swing.JButton addFoodItemsBtn;
-    private javax.swing.JButton clearFoodItemsBtn;
     private javax.swing.JButton deleteFoodItemsBtn;
     private javax.swing.JLabel foodAdminImage;
     private javax.swing.JPanel foodContainer;

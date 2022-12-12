@@ -11,9 +11,11 @@ import employee.EmployeeAccountDirectory;
 import items.GroceryItemDirectory;
 import organisation.FoodVendorDirectory;
 import items.ItemDirectory;
+import items.MeatItemDirectory;
 import items.PharmaItemDirectory;
 import java.util.ArrayList;
 import organisation.GroceryVendorDirectory;
+import organisation.MeatVendorDirectory;
 import organisation.PharmaVendorDirectory;
 /**
  *
@@ -28,9 +30,11 @@ public class Ecosystem extends Organisation {
     FoodVendorDirectory foodList;
     GroceryVendorDirectory groceryList;
     PharmaVendorDirectory pharmaList;
+    MeatVendorDirectory meatList;
     ItemDirectory itemList;
     GroceryItemDirectory groceryItemList;
     PharmaItemDirectory pharmaItemList;
+    MeatItemDirectory meatItemList;
     
     
     public static Ecosystem getInstance(){
@@ -109,6 +113,15 @@ public class Ecosystem extends Organisation {
         }
         return pharmaList;
     }
+    
+    public MeatVendorDirectory getMeatDirectory()
+    {
+        if(meatList == null)
+        {
+            this.meatList = new MeatVendorDirectory();
+        }
+        return meatList;
+    }
      
     public ItemDirectory getItemDirectory()
     {
@@ -137,4 +150,12 @@ public class Ecosystem extends Organisation {
         return pharmaItemList;
     }
     
+    public MeatItemDirectory getMeatItemDirectory()
+    {
+        if(meatItemList == null)
+        {
+            this.meatItemList = new MeatItemDirectory();
+        }
+        return meatItemList;
+    } 
 }

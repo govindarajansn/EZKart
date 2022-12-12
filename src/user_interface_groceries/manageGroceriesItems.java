@@ -46,6 +46,8 @@ public class manageGroceriesItems extends javax.swing.JPanel {
         this.system = system;
         this.mainframe = mainframe;
         foodAdminTemp.setBackground(new Color(0, 0, 0, 90));
+        jLabel2.setText(groceriesAdminMainPanel.jTable1.getValueAt(groceriesAdminPanel.index_1, 1).toString());
+
         populatetable();
         
         //jLabel2.setVisible(true);
@@ -63,7 +65,6 @@ public class manageGroceriesItems extends javax.swing.JPanel {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         foodAdminTemp = new javax.swing.JPanel();
-        foodShopName = new javax.swing.JLabel();
         foodShopName1 = new javax.swing.JLabel();
         foodShopName2 = new javax.swing.JLabel();
         foodShopName3 = new javax.swing.JLabel();
@@ -72,12 +73,10 @@ public class manageGroceriesItems extends javax.swing.JPanel {
         jTextField3 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jTextField4 = new javax.swing.JTextField();
-        uploadFoodPic = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         foodShopName5 = new javax.swing.JLabel();
@@ -85,12 +84,6 @@ public class manageGroceriesItems extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
-
-        foodShopName.setBackground(new java.awt.Color(255, 255, 255));
-        foodShopName.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        foodShopName.setForeground(new java.awt.Color(255, 255, 255));
-        foodShopName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        foodShopName.setText("Upload Image");
 
         foodShopName1.setBackground(new java.awt.Color(255, 255, 255));
         foodShopName1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
@@ -118,8 +111,8 @@ public class manageGroceriesItems extends javax.swing.JPanel {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Produce", "Dairy", "Bakery", "Snacks", "Drinks" }));
 
-        uploadFoodPic.setText("UPLOAD");
-
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Shop Name");
 
         jButton1.setText("Add Item");
@@ -137,8 +130,11 @@ public class manageGroceriesItems extends javax.swing.JPanel {
         });
 
         jButton3.setText("Delete Item");
-
-        jButton4.setText("Clear");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -175,39 +171,32 @@ public class manageGroceriesItems extends javax.swing.JPanel {
                         .addGap(0, 88, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 717, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(foodAdminTempLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
                             .addGroup(foodAdminTempLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(37, 37, 37)
                                 .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(foodShopName, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(foodShopName4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(foodShopName3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(foodShopName1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(foodShopName2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(foodAdminTempLayout.createSequentialGroup()
-                                        .addGap(37, 37, 37)
-                                        .addComponent(foodShopName5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(56, 56, 56))
-                            .addGroup(foodAdminTempLayout.createSequentialGroup()
-                                .addGap(88, 88, 88)
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                    .addComponent(foodShopName5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(56, 56, 56)
                         .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(foodAdminTempLayout.createSequentialGroup()
-                                .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jButton3)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                                    .addComponent(uploadFoodPic, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(111, 111, 111)
-                                .addComponent(jButton4))
+                            .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
                             .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)))))
+                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
+                            .addGroup(foodAdminTempLayout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(124, 124, 124)
+                                .addComponent(jButton3)))
+                        .addGap(89, 89, 89)))
                 .addContainerGap(395, Short.MAX_VALUE))
         );
         foodAdminTempLayout.setVerticalGroup(
@@ -235,19 +224,14 @@ public class manageGroceriesItems extends javax.swing.JPanel {
                 .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(foodShopName2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(foodShopName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(uploadFoodPic))
-                .addGap(44, 44, 44)
-                .addGroup(foodAdminTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+                .addGap(36, 36, 36))
         );
 
         add(foodAdminTemp);
@@ -267,6 +251,7 @@ public class manageGroceriesItems extends javax.swing.JPanel {
                 groceriesAdminMainPanel.jTable1.getValueAt(groceriesAdminMainPanel.index, 0).toString());
         id.setGroceryItemList(gi);
         populatetable();
+        clearFields();
 
         JOptionPane.showMessageDialog(new JFrame(), "Item Saved Succesfully");
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -294,7 +279,7 @@ public class manageGroceriesItems extends javax.swing.JPanel {
             id.getGroceryItemList().get(groceriesAdminPanel.index_1).setQuantity(qty_edit);
             
             populatetable();
-            
+            clearFields();
             JOptionPane.showMessageDialog(new JFrame(), "Item Updated Succesfully");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -310,6 +295,15 @@ public class manageGroceriesItems extends javax.swing.JPanel {
         jComboBox1.setSelectedItem(model.getValueAt(index_val, 3).toString());
         jTextField4.setText(model.getValueAt(index_val, 4).toString());
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int index = jTable1.getSelectedRow();
+        id.getGroceryItemList().remove(index);
+        populatetable();
+        clearFields();
+        JOptionPane.showMessageDialog(this, "Item Deleted Successfully");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public  void populatetable()
     {
@@ -336,11 +330,16 @@ public class manageGroceriesItems extends javax.swing.JPanel {
         }
                
     }
+    public void clearFields(){
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel foodAdminTemp;
-    private javax.swing.JLabel foodShopName;
     private javax.swing.JLabel foodShopName1;
     private javax.swing.JLabel foodShopName2;
     private javax.swing.JLabel foodShopName3;
@@ -349,7 +348,6 @@ public class manageGroceriesItems extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -359,6 +357,5 @@ public class manageGroceriesItems extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JButton uploadFoodPic;
     // End of variables declaration//GEN-END:variables
 }

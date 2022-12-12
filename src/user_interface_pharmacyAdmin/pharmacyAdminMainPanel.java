@@ -64,8 +64,6 @@ public class pharmacyAdminMainPanel extends javax.swing.JPanel {
         txtShopLocation = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         temp = new javax.swing.JPanel();
         pharmAdminImage = new javax.swing.JLabel();
@@ -106,20 +104,16 @@ public class pharmacyAdminMainPanel extends javax.swing.JPanel {
         });
 
         jButton1.setText("Delete Shop");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("Update Shop");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Clear");
-
-        jButton4.setText("Manage Items");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
             }
         });
 
@@ -146,19 +140,15 @@ public class pharmacyAdminMainPanel extends javax.swing.JPanel {
                             .addComponent(txtShopName, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtShopLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(ItemsContainerLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ItemsContainerLayout.createSequentialGroup()
                         .addGap(71, 71, 71)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ItemsContainerLayout.createSequentialGroup()
+                        .addGap(182, 182, 182)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(131, 131, 131)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(124, 124, 124)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(334, Short.MAX_VALUE))
         );
         ItemsContainerLayout.setVerticalGroup(
@@ -174,14 +164,12 @@ public class pharmacyAdminMainPanel extends javax.swing.JPanel {
                 .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtShopLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addGroup(ItemsContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(138, 138, 138))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(121, 121, 121))
         );
 
         add(ItemsContainer);
@@ -200,12 +188,6 @@ public class pharmacyAdminMainPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtShopNameActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         pvd = system.getPharmaDirectory();
@@ -217,7 +199,7 @@ public class pharmacyAdminMainPanel extends javax.swing.JPanel {
 
         };
         tblmodel.addRow(data_value);
-
+        clearFields();
         JOptionPane.showMessageDialog(new JFrame(), "Shop Saved Succesfully");
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -237,6 +219,7 @@ public class pharmacyAdminMainPanel extends javax.swing.JPanel {
             pvd.getPharmaVendorList().get(index).setLocation(shop_loc_edit);
             
             populateTable();
+            clearFields();
             JOptionPane.showMessageDialog(new JFrame(), "Shop Updated Succesfully");
 
         }
@@ -254,6 +237,15 @@ public class pharmacyAdminMainPanel extends javax.swing.JPanel {
         txtShopLocation.setText(model.getValueAt(index, 2).toString());
     }//GEN-LAST:event_tblPharmaShopMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int index = tblPharmaShop.getSelectedRow();
+        pvd.getPharmaVendorList().remove(index);
+        populateTable();
+        clearFields();
+        JOptionPane.showMessageDialog(this, "Vendor Deleted Successfully");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void populateTable() {
 
         tblmodel = (DefaultTableModel) tblPharmaShop.getModel();
@@ -269,14 +261,17 @@ public class pharmacyAdminMainPanel extends javax.swing.JPanel {
         }
 
     }
+    private void clearFields() {
+        
+        txtShopName.setText("");
+        txtShopLocation.setText("");
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ItemsContainer;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
